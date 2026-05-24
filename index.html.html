@@ -1,0 +1,3159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Capitán">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230F172A'/%3E%3Cpath d='M50 25 L70 50 L50 75 L30 50 Z' fill='%23F59E0B'/%3E%3C/svg%3E">
+<title>Capitán</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================
+   DESIGN SYSTEM
+   ===================================================== */
+:root {
+  /* Colores base — paleta sofisticada */
+  --slate-50: #F8FAFC;
+  --slate-100: #F1F5F9;
+  --slate-200: #E2E8F0;
+  --slate-300: #CBD5E1;
+  --slate-400: #94A3B8;
+  --slate-500: #64748B;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1E293B;
+  --slate-900: #0F172A;
+  --slate-950: #020617;
+
+  /* Acentos */
+  --amber-400: #FBBF24;
+  --amber-500: #F59E0B;
+  --amber-600: #D97706;
+  --emerald-400: #34D399;
+  --emerald-500: #10B981;
+  --emerald-600: #059669;
+  --rose-400: #FB7185;
+  --rose-500: #F43F5E;
+  --rose-600: #E11D48;
+  --indigo-400: #818CF8;
+  --indigo-500: #6366F1;
+  --indigo-600: #4F46E5;
+  --violet-500: #8B5CF6;
+  --sky-500: #0EA5E9;
+
+  /* Semánticos (tema claro por defecto) */
+  --bg: var(--slate-50);
+  --surface: #FFFFFF;
+  --surface-2: var(--slate-100);
+  --surface-3: var(--slate-200);
+  --text-1: var(--slate-900);
+  --text-2: var(--slate-600);
+  --text-3: var(--slate-400);
+  --border: var(--slate-200);
+  --border-2: var(--slate-300);
+
+  /* Primary brand */
+  --brand: var(--slate-900);
+  --brand-text: #FFFFFF;
+  --accent: var(--amber-500);
+  --accent-text: var(--slate-900);
+
+  /* Estado */
+  --success: var(--emerald-600);
+  --success-bg: #ECFDF5;
+  --success-text: #064E3B;
+  --danger: var(--rose-600);
+  --danger-bg: #FFF1F2;
+  --danger-text: #881337;
+  --warning-bg: #FEF3C7;
+  --warning-text: #78350F;
+  --info-bg: #EFF6FF;
+  --info-text: #1E3A8A;
+
+  /* Bloques del programa */
+  --block-1-bg: #ECFDF5;
+  --block-1-text: #065F46;
+  --block-1-accent: var(--emerald-500);
+  --block-2-bg: #FFFBEB;
+  --block-2-text: #78350F;
+  --block-2-accent: var(--amber-500);
+  --block-3-bg: #FEF2F2;
+  --block-3-text: #991B1B;
+  --block-3-accent: var(--rose-500);
+
+  /* Pasos (degradado conceptual) */
+  --step-1: var(--emerald-500);
+  --step-2: var(--sky-500);
+  --step-3: var(--amber-500);
+  --step-4: var(--slate-500);
+  --step-5: var(--violet-500);
+  --step-6: var(--rose-500);
+  --step-7: var(--indigo-600);
+
+  /* Espaciado (sistema 4px) */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-12: 48px;
+  --s-16: 64px;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --r-2xl: 24px;
+  --r-full: 9999px;
+
+  /* Sombras */
+  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(15, 23, 42, 0.2);
+
+  /* Type */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Transitions */
+  --t-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --t-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--slate-950);
+    --surface: var(--slate-900);
+    --surface-2: var(--slate-800);
+    --surface-3: var(--slate-700);
+    --text-1: var(--slate-50);
+    --text-2: var(--slate-400);
+    --text-3: var(--slate-500);
+    --border: var(--slate-800);
+    --border-2: var(--slate-700);
+
+    --brand: #FFFFFF;
+    --brand-text: var(--slate-900);
+    --accent: var(--amber-400);
+    --accent-text: var(--slate-900);
+
+    --success-bg: #064E3B;
+    --success-text: #6EE7B7;
+    --danger-bg: #4C0519;
+    --danger-text: #FECDD3;
+    --warning-bg: #451A03;
+    --warning-text: #FDE68A;
+    --info-bg: #172554;
+    --info-text: #BFDBFE;
+
+    --block-1-bg: #064E3B;
+    --block-1-text: #A7F3D0;
+    --block-2-bg: #451A03;
+    --block-2-text: #FDE68A;
+    --block-3-bg: #450A0A;
+    --block-3-text: #FECACA;
+
+    --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* =====================================================
+   RESET & BASE
+   ===================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-1);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overscroll-behavior-y: contain;
+  padding-bottom: calc(80px + env(safe-area-inset-bottom));
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-1);
+}
+
+/* =====================================================
+   TYPOGRAPHY SYSTEM
+   ===================================================== */
+.t-display { font-size: 32px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+.t-h1 { font-size: 26px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+.t-h2 { font-size: 20px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+.t-h3 { font-size: 17px; font-weight: 600; line-height: 1.35; }
+.t-body { font-size: 15px; font-weight: 400; line-height: 1.55; }
+.t-body-strong { font-size: 15px; font-weight: 500; line-height: 1.55; }
+.t-small { font-size: 13px; font-weight: 400; line-height: 1.5; }
+.t-tiny { font-size: 11px; font-weight: 500; line-height: 1.4; letter-spacing: 0.02em; }
+.t-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.t-number { font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.t-number-lg { font-size: 40px; font-weight: 800; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+
+/* =====================================================
+   LAYOUT
+   ===================================================== */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 var(--s-4);
+}
+
+.stack { display: flex; flex-direction: column; gap: var(--s-3); }
+.stack-2 { display: flex; flex-direction: column; gap: var(--s-2); }
+.stack-4 { display: flex; flex-direction: column; gap: var(--s-4); }
+.stack-6 { display: flex; flex-direction: column; gap: var(--s-6); }
+.row { display: flex; align-items: center; gap: var(--s-3); }
+.row-between { display: flex; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-3); }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--s-2); }
+.flex-1 { flex: 1; min-width: 0; }
+.text-center { text-align: center; }
+.text-end { text-align: end; }
+.gap-1 { gap: var(--s-1); }
+.gap-2 { gap: var(--s-2); }
+.gap-3 { gap: var(--s-3); }
+.mb-1 { margin-bottom: var(--s-1); }
+.mb-2 { margin-bottom: var(--s-2); }
+.mb-3 { margin-bottom: var(--s-3); }
+.mb-4 { margin-bottom: var(--s-4); }
+.mt-1 { margin-top: var(--s-1); }
+.mt-2 { margin-top: var(--s-2); }
+.mt-3 { margin-top: var(--s-3); }
+.mt-4 { margin-top: var(--s-4); }
+.mt-6 { margin-top: var(--s-6); }
+.p-3 { padding: var(--s-3); }
+.p-4 { padding: var(--s-4); }
+.text-1 { color: var(--text-1); }
+.text-2 { color: var(--text-2); }
+.text-3 { color: var(--text-3); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
+.text-accent { color: var(--accent); }
+.hidden { display: none !important; }
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding-top: env(safe-area-inset-top);
+}
+@media (prefers-color-scheme: dark) {
+  .header { background: rgba(15, 23, 42, 0.85); }
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  min-height: 56px;
+}
+.header-content { flex: 1; min-width: 0; }
+.header-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+.header-subtitle { font-size: 12px; color: var(--text-2); margin-top: 1px; }
+.header-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--r-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-1);
+  transition: background var(--t-fast);
+}
+.header-icon-btn:hover { background: var(--surface-2); }
+.header-icon-btn:active { background: var(--surface-3); }
+
+/* Main */
+main { padding: var(--s-4) 0 var(--s-8); }
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+  transition: border-color var(--t-base);
+}
+.card.elevated {
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+.card.glass {
+  background: linear-gradient(135deg, var(--surface), var(--surface-2));
+}
+.card.outline {
+  background: transparent;
+  border: 1px dashed var(--border-2);
+}
+.card.tappable {
+  cursor: pointer;
+  transition: transform var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+}
+.card.tappable:active { transform: scale(0.98); background: var(--surface-2); }
+
+.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--s-3); gap: var(--s-2); }
+.card-title { font-size: 13px; font-weight: 600; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* =====================================================
+   HERO / WEEK PROGRESS
+   ===================================================== */
+.hero {
+  background: var(--brand);
+  color: var(--brand-text);
+  border-radius: var(--r-xl);
+  padding: var(--s-5);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.hero-row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); position: relative; }
+.hero-week { font-size: 12px; font-weight: 600; opacity: 0.7; letter-spacing: 0.05em; text-transform: uppercase; }
+.hero-date { font-size: 13px; opacity: 0.6; margin-top: 2px; text-transform: capitalize; }
+.hero-block-badge {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.hero-progress {
+  margin-top: var(--s-4);
+  position: relative;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+.hero-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #FCD34D);
+  border-radius: var(--r-full);
+  transition: width 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-progress-label {
+  margin-top: var(--s-2);
+  font-size: 11px;
+  opacity: 0.6;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* =====================================================
+   QUICK ADD
+   ===================================================== */
+.quick-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+}
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-2);
+  margin-top: var(--s-3);
+}
+.quick-btn {
+  position: relative;
+  background: var(--surface-2);
+  border: 1.5px solid transparent;
+  border-radius: var(--r-md);
+  padding: var(--s-3) var(--s-2);
+  text-align: left;
+  transition: all var(--t-fast);
+  min-height: 84px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.quick-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--step-color, var(--brand));
+  opacity: 0.8;
+}
+.quick-btn:active {
+  transform: scale(0.96);
+  background: var(--surface-3);
+}
+.quick-btn.flash {
+  animation: flashGreen 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes flashGreen {
+  0% { background: var(--surface-2); }
+  30% { background: var(--success); border-color: var(--success); color: white; transform: scale(1.04); }
+  100% { background: var(--surface-2); transform: scale(1); }
+}
+.quick-btn-num {
+  position: absolute;
+  top: var(--s-2);
+  right: var(--s-2);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--surface);
+  color: var(--text-1);
+  padding: 2px 7px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  min-width: 22px;
+  text-align: center;
+}
+.quick-btn-num.has-value {
+  background: var(--step-color, var(--brand));
+  color: white;
+  border-color: transparent;
+}
+.quick-btn-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-2);
+  margin-top: auto;
+}
+.quick-btn-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-1);
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+/* =====================================================
+   ACTION CARDS / BUTTONS
+   ===================================================== */
+.action-row { display: flex; gap: var(--s-2); }
+.action-card {
+  flex: 1;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+  text-align: left;
+  transition: all var(--t-fast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-1);
+  min-height: 64px;
+  justify-content: center;
+}
+.action-card:active { transform: scale(0.97); background: var(--surface-3); }
+.action-card.primary {
+  background: var(--brand);
+  color: var(--brand-text);
+}
+.action-card.accent {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+.action-card-icon { width: 18px; height: 18px; }
+.action-card-title { font-size: 13px; font-weight: 600; }
+.action-card-sub { font-size: 11px; opacity: 0.7; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-2);
+  padding: 0 var(--s-5);
+  height: 48px;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  font-weight: 600;
+  transition: all var(--t-fast);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary {
+  background: var(--brand);
+  color: var(--brand-text);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { background: var(--slate-800); }
+@media (prefers-color-scheme: dark) {
+  .btn-primary:hover { background: var(--slate-100); }
+}
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-text);
+  box-shadow: var(--shadow-sm);
+}
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text-1);
+  border-color: var(--border);
+}
+.btn-secondary:hover { background: var(--surface-2); border-color: var(--border-2); }
+.btn-ghost {
+  background: transparent;
+  color: var(--text-1);
+}
+.btn-ghost:hover { background: var(--surface-2); }
+.btn-success {
+  background: var(--success);
+  color: white;
+}
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+.btn-full { width: 100%; }
+.btn-lg { height: 56px; font-size: 16px; }
+.btn-sm { height: 36px; padding: 0 var(--s-3); font-size: 13px; }
+
+/* =====================================================
+   STATS GRID
+   ===================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s-2);
+}
+.stat {
+  background: var(--surface-2);
+  padding: var(--s-3);
+  border-radius: var(--r-md);
+  position: relative;
+  overflow: hidden;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-2);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+.stat-meta {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+.stat-meta.up { color: var(--success); }
+.stat-meta.down { color: var(--danger); }
+
+/* =====================================================
+   INFO ICON
+   ===================================================== */
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 12px;
+  font-weight: 700;
+  font-style: italic;
+  transition: all var(--t-fast);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  font-family: Georgia, serif;
+}
+.info-icon:active {
+  background: var(--brand);
+  color: var(--brand-text);
+  transform: scale(0.9);
+}
+.info-icon.on-dark {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* =====================================================
+   FORMS
+   ===================================================== */
+.field { margin-bottom: var(--s-4); }
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-1);
+  margin-bottom: var(--s-2);
+}
+.input,
+.textarea,
+.select {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 15px;
+  color: var(--text-1);
+  transition: all var(--t-fast);
+  font-family: inherit;
+}
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--brand);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+}
+@media (prefers-color-scheme: dark) {
+  .input:focus, .textarea:focus, .select:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+  }
+}
+.textarea { min-height: 88px; resize: vertical; line-height: 1.5; }
+.input::placeholder, .textarea::placeholder { color: var(--text-3); }
+
+/* Sliders */
+.slider-wrap {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+}
+.slider-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-3);
+  gap: var(--s-2);
+}
+.slider-title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+}
+.slider-value {
+  font-size: 28px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  min-width: 44px;
+  text-align: right;
+  letter-spacing: -0.02em;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--surface-3);
+  border-radius: var(--r-full);
+  outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-full);
+  background: var(--brand);
+  border: 3px solid var(--surface);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform var(--t-fast);
+}
+input[type=range]::-webkit-slider-thumb:active { transform: scale(1.15); }
+input[type=range]::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-full);
+  background: var(--brand);
+  border: 3px solid var(--surface);
+  cursor: pointer;
+}
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--s-2);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* =====================================================
+   TOAST / NOTIFICATION
+   ===================================================== */
+.toast {
+  position: fixed;
+  bottom: 100px;
+  bottom: calc(100px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(150%);
+  background: var(--slate-900);
+  color: white;
+  padding: 12px 18px;
+  border-radius: var(--r-full);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  white-space: nowrap;
+  max-width: 90%;
+}
+@media (prefers-color-scheme: dark) {
+  .toast { background: var(--slate-100); color: var(--slate-900); }
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast.success { background: var(--success); color: white; }
+.toast-icon { font-size: 16px; }
+
+/* =====================================================
+   MODAL / BOTTOM SHEET
+   ===================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fadeIn var(--t-base);
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: var(--surface);
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: var(--r-2xl) var(--r-2xl) 0 0;
+  padding: var(--s-5);
+  padding-bottom: calc(var(--s-5) + env(safe-area-inset-bottom));
+  animation: slideUp var(--t-slow);
+  position: relative;
+}
+.modal::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  background: var(--border-2);
+  border-radius: var(--r-full);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--s-4);
+  margin-top: var(--s-3);
+  gap: var(--s-2);
+}
+.modal-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; flex: 1; }
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  flex-shrink: 0;
+}
+
+/* Info sections in modals */
+.info-block { margin-bottom: var(--s-4); }
+.info-block-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.info-block-text { font-size: 14px; line-height: 1.6; color: var(--text-1); }
+.info-block-text.highlight {
+  background: var(--warning-bg);
+  color: var(--warning-text);
+  padding: var(--s-3);
+  border-radius: var(--r-md);
+  font-weight: 500;
+}
+.example-list {
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+}
+.example-item {
+  font-size: 13px;
+  padding: 4px 0;
+  color: var(--text-1);
+  display: flex;
+  gap: var(--s-2);
+  align-items: flex-start;
+}
+.example-item::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: var(--r-full);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   GLOSSARY
+   ===================================================== */
+.glossary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: all var(--t-fast);
+}
+.glossary-card.open { box-shadow: var(--shadow-md); }
+.glossary-header {
+  padding: var(--s-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+.glossary-header:active { background: var(--surface-2); }
+.glossary-num {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+.glossary-num.step-1 { background: var(--step-1); }
+.glossary-num.step-2 { background: var(--step-2); }
+.glossary-num.step-3 { background: var(--step-3); }
+.glossary-num.step-4 { background: var(--step-4); }
+.glossary-num.step-5 { background: var(--step-5); }
+.glossary-num.step-6 { background: var(--step-6); }
+.glossary-num.step-7 { background: var(--step-7); }
+.glossary-num.concept {
+  background: var(--surface-2);
+  color: var(--text-1);
+  font-size: 11px;
+  border: 1px solid var(--border);
+}
+.glossary-title { font-size: 15px; font-weight: 600; flex: 1; }
+.glossary-arrow {
+  color: var(--text-3);
+  transition: transform var(--t-base);
+}
+.glossary-card.open .glossary-arrow { transform: rotate(180deg); }
+.glossary-body {
+  padding: 0 var(--s-4) var(--s-4);
+  display: none;
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-4);
+}
+.glossary-card.open .glossary-body { display: block; }
+
+/* =====================================================
+   ENTRY CARDS (history items)
+   ===================================================== */
+.entry {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: var(--s-3) var(--s-4);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.entry:active { transform: scale(0.99); background: var(--surface-2); }
+.entry-meta {
+  font-size: 11px;
+  color: var(--text-2);
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: flex;
+  gap: var(--s-2);
+  align-items: center;
+}
+.entry-title { font-size: 14px; font-weight: 600; color: var(--text-1); line-height: 1.4; }
+.entry-body { font-size: 13px; color: var(--text-2); margin-top: 4px; line-height: 1.5; }
+.entry-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.entry-tag.success { background: var(--success-bg); color: var(--success-text); }
+.entry-tag.danger { background: var(--danger-bg); color: var(--danger-text); }
+.entry-tag.neutral { background: var(--surface-2); color: var(--text-2); }
+
+.entry-stats {
+  display: flex;
+  gap: var(--s-3);
+  margin-top: var(--s-2);
+  flex-wrap: wrap;
+}
+.entry-stat {
+  font-size: 11px;
+  color: var(--text-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+/* =====================================================
+   DAY TILES (week view)
+   ===================================================== */
+.day-tile {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-3);
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  transition: all var(--t-fast);
+}
+.day-tile.done { background: var(--success-bg); }
+.day-tile.done .day-tasks { opacity: 0.65; }
+.day-check {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-full);
+  border: 2px solid var(--border-2);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  color: white;
+  transition: all var(--t-fast);
+}
+.day-check.checked { background: var(--success); border-color: var(--success); }
+.day-check:active { transform: scale(0.9); }
+.day-name {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 32px;
+  color: var(--text-1);
+  padding-top: 4px;
+}
+.day-tasks {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+/* =====================================================
+   NOTICES
+   ===================================================== */
+.notice {
+  border-radius: var(--r-md);
+  padding: var(--s-3) var(--s-4);
+  font-size: 13px;
+  line-height: 1.5;
+  display: flex;
+  gap: var(--s-3);
+  align-items: flex-start;
+}
+.notice strong { font-weight: 600; }
+.notice-warning { background: var(--warning-bg); color: var(--warning-text); }
+.notice-danger { background: var(--danger-bg); color: var(--danger-text); }
+.notice-success { background: var(--success-bg); color: var(--success-text); }
+.notice-info { background: var(--info-bg); color: var(--info-text); }
+.notice-icon { font-size: 16px; flex-shrink: 0; line-height: 1.5; }
+
+/* =====================================================
+   BLOCK BADGE
+   ===================================================== */
+.block-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--r-full);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.block-pill.b1 { background: var(--block-1-bg); color: var(--block-1-text); }
+.block-pill.b2 { background: var(--block-2-bg); color: var(--block-2-text); }
+.block-pill.b3 { background: var(--block-3-bg); color: var(--block-3-text); }
+.block-dot { width: 6px; height: 6px; border-radius: var(--r-full); }
+.block-pill.b1 .block-dot { background: var(--block-1-accent); }
+.block-pill.b2 .block-dot { background: var(--block-2-accent); }
+.block-pill.b3 .block-dot { background: var(--block-3-accent); }
+
+/* =====================================================
+   TAB BAR
+   ===================================================== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-top: 1px solid var(--border);
+  z-index: 50;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@media (prefers-color-scheme: dark) {
+  .tab-bar { background: rgba(15, 23, 42, 0.85); }
+}
+.tab-inner {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 6px;
+}
+.tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  color: var(--text-3);
+  border-radius: var(--r-md);
+  font-size: 10px;
+  font-weight: 500;
+  transition: color var(--t-fast);
+  position: relative;
+}
+.tab-btn.active { color: var(--text-1); }
+.tab-btn.active .tab-icon { color: var(--accent); }
+.tab-btn:active { background: var(--surface-2); }
+.tab-icon { width: 22px; height: 22px; transition: color var(--t-fast); }
+
+/* =====================================================
+   FAB
+   ===================================================== */
+.fab {
+  position: fixed;
+  bottom: calc(86px + env(safe-area-inset-bottom));
+  right: var(--s-4);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-full);
+  background: var(--brand);
+  color: var(--brand-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xl);
+  z-index: 40;
+  transition: transform var(--t-fast);
+}
+.fab:active { transform: scale(0.92); }
+
+/* =====================================================
+   EMPTY STATES
+   ===================================================== */
+.empty {
+  padding: var(--s-12) var(--s-4);
+  text-align: center;
+}
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--r-full);
+  background: var(--surface-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s-4);
+  color: var(--text-3);
+}
+.empty-title { font-size: 16px; font-weight: 600; color: var(--text-1); margin-bottom: var(--s-2); }
+.empty-text { font-size: 13px; color: var(--text-2); max-width: 280px; margin: 0 auto var(--s-4); line-height: 1.5; }
+
+/* =====================================================
+   ONBOARDING
+   ===================================================== */
+.onboard {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--s-6) var(--s-4);
+}
+.onboard-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--r-2xl);
+  background: var(--brand);
+  color: var(--brand-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--s-6);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+.onboard-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, var(--accent) 0%, transparent 60%);
+  opacity: 0.5;
+}
+.onboard-title { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: var(--s-3); }
+.onboard-text { font-size: 15px; color: var(--text-2); line-height: 1.6; max-width: 320px; margin-bottom: var(--s-6); }
+
+/* =====================================================
+   ICON COMPONENT (SVG via use)
+   ===================================================== */
+.icon { width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; flex-shrink: 0; }
+
+/* =====================================================
+   UTILS
+   ===================================================== */
+hr.divider { border: none; border-top: 1px solid var(--border); margin: var(--s-4) 0; }
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-2) 25%, var(--surface-3) 50%, var(--surface-2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--r-md);
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- SVG Icon Sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 12L12 3l9 9v9a1 1 0 01-1 1h-5v-7h-6v7H4a1 1 0 01-1-1v-9z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5v14zM4 19.5A2.5 2.5 0 006.5 22H20v-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M12 5c-1.5-2-4.5-2-6 0-1 1.5-1 4 0 5 0 0-1 1-1 3s2 4 4 4c1 0 2 1 3 1s2-1 3-1c2 0 4-2 4-4s-1-3-1-3c1-1 1-3.5 0-5-1.5-2-4.5-2-6 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="12" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l18 18" transform="scale(0.75) translate(4 4)" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 01-10 0V4zM7 6H5a2 2 0 00-2 2v0a4 4 0 004 4M17 6h2a2 2 0 012 2v0a4 4 0 01-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3L14 9L20 11L14 13L12 19L10 13L4 11L10 9L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24"><path d="M23 6l-9.5 9.5-5-5L1 18M17 6h6v6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8 14s1.5-2 4-2 4 2 4 2-1 5-4 7c-3-2-4-7-4-7zM12 2s4 2 4 6c0 1-1 2-2 2s-2-1-2-2c0-2-2-3-2-3s-2 4-2 6c0 3 2 5 4 6 2-1 4-3 4-6 0-4-4-9-4-9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+    <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="18" rx="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 4V2h6v2M9 11h6M9 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 8l-2 6-6 2 2-6 6-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/></symbol>
+  </defs>
+</svg>
+
+<header class="header">
+  <div class="header-inner">
+    <button class="header-icon-btn hidden" id="backBtn" onclick="goBack()" aria-label="Volver">
+      <svg class="icon" style="font-size:20px"><use href="#i-arrow-left"/></svg>
+    </button>
+    <div class="header-content">
+      <div class="header-title" id="headerTitle">Capitán</div>
+      <div class="header-subtitle" id="headerSubtitle">Programa de entrenamiento</div>
+    </div>
+    <button class="header-icon-btn hidden" id="headerInfoBtn" aria-label="Información">
+      <svg class="icon" style="font-size:20px"><use href="#i-info"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="container" id="appContainer"></main>
+
+<nav class="tab-bar">
+  <div class="tab-inner">
+    <button class="tab-btn active" data-view="home" onclick="navigate('home')">
+      <svg class="tab-icon icon"><use href="#i-home"/></svg>
+      <span>Inicio</span>
+    </button>
+    <button class="tab-btn" data-view="glossary" onclick="navigate('glossary')">
+      <svg class="tab-icon icon"><use href="#i-book"/></svg>
+      <span>Glosario</span>
+    </button>
+    <button class="tab-btn" data-view="weeks" onclick="navigate('weeks')">
+      <svg class="tab-icon icon"><use href="#i-calendar"/></svg>
+      <span>Semanas</span>
+    </button>
+    <button class="tab-btn" data-view="therapy" onclick="navigate('therapy')">
+      <svg class="tab-icon icon"><use href="#i-brain"/></svg>
+      <span>Terapia</span>
+    </button>
+    <button class="tab-btn" data-view="more" onclick="navigate('more')">
+      <svg class="tab-icon icon"><use href="#i-more"/></svg>
+      <span>Más</span>
+    </button>
+  </div>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle"></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">
+        <svg class="icon" style="font-size:14px"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// =====================================================
+// DATA (idéntico a v2)
+// =====================================================
+const PASOS = [
+  {num:1,key:"paso1",titulo:"Apertura neutra",short:"Microinteracciones sin agenda",
+    que:"Microinteracciones breves con desconocidas donde NO intentas ligar. Solo abres conversación con naturalidad.",
+    obj:"Romper el patrón de evitación. Entrenar capacidad de iniciar contacto social sin agenda.",
+    como:"3 al día durante 10-14 días. Mantén 10-30 segundos sin escapar.",
+    ejemplos:["Perdona, ¿esta cola es para pagar o para pedir?","¿Sabes si aquí cierran tarde?","Estoy dudando, ¿mejor este sitio o el de la esquina?","¿Me recomiendas algo rápido de aquí?","¿Tú dirías que hoy hace frío de verdad o soy yo?"],
+    registro:"Tap +1 cada vez que hagas una apertura. Lo cuentas en el momento, no a final del día."},
+  {num:2,key:"paso2",titulo:"Micro-polarización",short:"No validar automáticamente",
+    que:"Introducir microfricción juguetona. No validar automáticamente, no ser 'terapeuta'. Mostrar carácter con tono cálido.",
+    obj:"Salir del marco 'siempre validar'. Entrenar asertividad sin agresividad.",
+    como:"10-20 veces por semana en interacciones cotidianas, sin intención sexual.",
+    ejemplos:["Eso suena demasiado perfecto... sospechoso.","Mmm, esa respuesta es muy diplomática.","No sé si te creo.","Te estás defendiendo mucho para ser verdad.","Venga ya... eso es trampa. (con sonrisa)"],
+    registro:"Tap +1 cada vez que metas una micro-polarización en una conversación."},
+  {num:3,key:"paso3",titulo:"Insinuación ligera",short:"Ambigüedad controlada",
+    que:"Cambiar marco de neutro a hombre-mujer con ambigüedad controlada. Insinuación suave con doble lectura.",
+    obj:"Empezar a introducir carga romántica sin explicitud. Observar reciprocidad.",
+    como:"5-10 veces semanales. Primero con personas que no te intimiden.",
+    ejemplos:["Cuidado, que así convences a cualquiera.","Esa sonrisa es peligrosa.","Tienes cara de ser un poco traviesa.","Contigo hay que ir con cuidado.","Me estás poniendo difícil portarme bien."],
+    registro:"Tap +1 cada vez que lances una insinuación con doble lectura."},
+  {num:4,key:"paso4",titulo:"Tensión breve",short:"Apertura + carga + retirada",
+    que:"Interacción corta (1-3 min) con mujer atractiva. Abres + frase con carga + te vas. NO intentas conseguir nada.",
+    obj:"Exposición a situación activante + tolerancia a no buscar validación.",
+    como:"2-4 veces por semana. Contextos donde la otra persona pueda irse fácilmente.",
+    ejemplos:["Apertura sobre el contexto + 'Tienes energía peligrosa.' + 'Te dejo, que tengas buen día.'","Apertura + 'No esperaba encontrarte así de interesante.' + retirada con sonrisa.","Apertura + 'Contigo uno podría meterse en líos.' + 'Bueno, no te molesto.'"],
+    registro:"Usa 'Registro detallado'. Pide medir activación (los nervios reales en el momento) + notas rápidas."},
+  {num:5,key:"paso5",titulo:"Sostener tensión",short:"3+ intercambios sin huir",
+    que:"Cuando ella responde a tu insinuación, NO cambias de tema. Mantienes la línea durante 3+ intercambios.",
+    obj:"Romper el patrón de huida cuando la tensión sube. Calibrar reciprocidad.",
+    como:"Regla: siempre dos respuestas más antes de cambiar de tema.",
+    ejemplos:["Ella: '¿Qué dices?' Tú: 'Eso dicen todas.' Ella: '...' Tú: 'Te delata la mirada.'","Cuando da pinceladas, tu próxima respuesta escala, NO cambia de tema.","REGLA ANTI-TRAMPA: Si en una conversación aparecen 2+ pinceladas, la siguiente ACTIVA decisión de actuar."],
+    registro:"Usa 'Registro detallado'. Anota activación + cuántos intercambios sostuviste."},
+  {num:6,key:"paso6",titulo:"Dirección y cierre",short:"Propuesta concreta",
+    que:"Convertir tensión en acción concreta. Propuesta clara con día/hora/plan.",
+    obj:"Salir del limbo amistoso. Asertividad: proponer, liderar, concretar.",
+    como:"2 propuestas por semana. El éxito es ejecutar, no que diga sí.",
+    ejemplos:["El jueves me encaja para tomar algo, ¿te cuadra?","Te invito a un café esta semana, ¿qué día puedes?","Vamos a tomar algo otro día, dame tu número y lo organizamos.","Me interesa conocerte más, ¿quedamos?"],
+    registro:"Usa 'Registro detallado'. Anota qué propusiste y respuesta de ella."},
+  {num:7,key:"paso7",titulo:"Escalada física",short:"Acción física en presencia",
+    que:"Acción física en momento real con persona con quien hay marco construido. NO necesariamente beso: contacto mantenido, mirada larga, aproximación corporal.",
+    obj:"Romper el 'último step' que falta. Capacidad de actuar físicamente sin permiso verbal previo.",
+    como:"Solo en contextos donde haya marco construido. Decisión interna firme tomada en frío antes.",
+    ejemplos:["Mirada larga + cercanía corporal + silencio cargado + te inclinas.","Secuencia A→B: frase breve ('Me gustas') + silencio 2-3 seg + si no retira, te inclinas.","Contacto físico mantenido (mano en su mano con mirada) sin retirarte.","Beso al despedirte tras momento privado real."],
+    registro:"Usa 'Registro detallado'. Lo más importante: registra TAMBIÉN cuando NO escalaste si había oportunidad."}
+];
+
+const CONCEPTOS = [
+  {key:"pincelada",titulo:"PINCELADA",
+    que:"Señal de apertura que ella te da en conversación: tema sensible, confidencia íntima, contacto físico no retirado, mirada larga con silencio, etc.",
+    regla:"Si en una sesión aparecen 2+ pinceladas, la siguiente ACTIVA decisión de actuar. No esperes pincelada perfecta.",
+    ejemplos:["Menciona tema sensible (otra persona que le tira ficha)","Te confía algo íntimo personal","Mantiene contacto físico casual sin retirarlo","Sostiene mirada larga con silencio","Te pregunta sobre tu vida afectiva","Se acerca físicamente sin necesidad"]},
+  {key:"zona-ambigua",titulo:"ZONA AMBIGUA",
+    que:"Relación de varias semanas con complicidad creciente pero sin definición del marco (sin beso, sin declaración, sin escalada).",
+    regla:"Límite 4-6 semanas. Si pasa, dos opciones: defines tú el marco (físicamente o verbal) o te retiras.",
+    ejemplos:["Opción A: defines tú (escalada física o conversación directa)","Opción B: te retiras (reduces presencia)","NO opción: seguir esperando que se defina sola"]},
+  {key:"autoimagen",titulo:"AUTOIMAGEN",
+    que:"Creencia interna sobre si eres deseable como amante/pareja (no solo como amigo).",
+    regla:"Se construye con cuerpo, exposición a flirteo, reformulación cognitiva, identidad masculina, terapia para raíz.",
+    ejemplos:["Cuerpo: ejercicio, postura, cuidado físico","Exposición: flirteo bajo riesgo, registrar señales positivas","Reformulación: cuestionar creencias automáticas dañinas","Identidad: definir tu masculinidad propia","Terapia: para raíces profundas"]},
+  {key:"post-rechazo",titulo:"POST-RECHAZO",
+    que:"Conjunto de acciones tras recibir un 'no' en declaración o escalada.",
+    regla:"Acepta con dignidad. NO autocastigo. Distancia real 1-2 semanas. Aprendizaje sin autoflagelación a las 2-3 semanas.",
+    ejemplos:["Inmediato: acepta con dignidad, agradece sinceridad","Primeras horas: cuerpo primero, NO autocastigo","Primeros días: cero contacto activo 1-2 semanas","Pasadas 2 semanas: extracción de aprendizaje sin golpes"]}
+];
+
+const INFO = {
+  "sensacion-corporal":{titulo:"Cómo me siento conmigo hoy (0-10)",
+    que:"Cómo te sientes contigo mismo HOY al verte al espejo. Tu autoimagen del día.",
+    como:"0 = mal con tu cuerpo, te ves mal, energía baja. 5 = neutro. 10 = muy bien, presente, te ves atractivo, energía alta.",
+    porque:"La autoimagen masculina se construye desde el cuerpo. Si te sientes bien físicamente, proyectas más Capitán sin esfuerzo.",
+    util:"Debería SUBIR con el tiempo según trabajas cuerpo, ejercicio, vida propia, terapia."},
+  "activacion":{titulo:"Activación / nervios (0-10)",
+    que:"El nivel de nervios, ansiedad o pulso acelerado que sentiste durante la interacción que estás registrando.",
+    como:"0 = totalmente tranquilo. 5 = noté algo pero sostuve. 10 = ansiedad máxima, casi me bloqueo.",
+    porque:"El patrón estructural es de evitación: cuando aparece carga, el sistema dispara activación y la respuesta automática es escapar.",
+    util:"La activación debería BAJAR con el tiempo. Si en semana 1 hacer un Paso 4 te genera un 8, y en semana 6 te genera un 3, es evidencia de que el entrenamiento funciona."},
+  "ejercicio":{titulo:"Ejercicio físico",
+    que:"Qué tipo de ejercicio físico hiciste hoy.",
+    porque:"El cuerpo es la base de la autoimagen masculina. 4-5 días semana es mínimo para que el sistema se sienta más Capitán.",
+    util:"Fuerza > Cardio para autoimagen masculina. Caminata cuenta cuando es activa (10k pasos)."},
+  "pinceladas":{titulo:"Pinceladas detectadas",
+    que:"Señales claras de apertura que ella te dio en la interacción: tema sensible, confidencia íntima, contacto físico no retirado, mirada larga con silencio.",
+    porque:"Tu trampa específica es esperar 'pincelada perfecta'. Registrarlas en caliente te entrena a verlas y a actuar tras 2-3.",
+    util:"REGLA: Si en una sesión aparecen 2+ pinceladas, la siguiente activa decisión de actuar. No esperes la perfecta."},
+  "pincelada-accion":{titulo:"¿Actuaste tras la pincelada?",
+    que:"De las pinceladas que detectaste, cuántas activaron acción tuya inmediata (escalada física, verbal con dirección, contacto físico no verbal).",
+    porque:"Es el indicador más honesto de si estás rompiendo el patrón. Detectar sin actuar es la fase 1; detectar y actuar es lo que cambia el patrón.",
+    util:"En las primeras semanas tendrás muchas detectadas y pocas con acción. Es normal. El objetivo es que la proporción suba."},
+  "victorias":{titulo:"Victorias afectivas",
+    que:"Señales positivas femeninas recibidas: sonrisas mantenidas, miradas largas, conversación que ellas alargan, contactos físicos casuales por su parte.",
+    porque:"Alimenta autoimagen con datos reales, no afirmaciones internas. Acumular datos cambia autoimagen más que cualquier técnica mental.",
+    util:"Mínimo 10 entradas en los 3 meses. Cada victoria es evidencia objetiva de tu deseabilidad."},
+  "terapia-sesion":{titulo:"Sesión con terapeuta",
+    que:"Registro de cada sesión realizada con tu terapeuta: fecha, qué trabajasteis, aprendizajes, tareas para casa.",
+    porque:"La terapia trabaja la capa profunda que el coaching conductual no toca. Tener historial te permite ver evolución.",
+    util:"Rellénalo el mismo día de la sesión o al día siguiente, cuando esté fresco."},
+  "terapia-notas":{titulo:"Notas entre sesiones",
+    que:"Cosas que quieres tratar con tu terapeuta la próxima sesión: situaciones que han surgido, dudas, patrones que has notado.",
+    porque:"Entre sesiones surgen cosas que se olvidan si no las apuntas. Llegar a sesión con todo claro multiplica el aprovechamiento.",
+    util:"Apunta cuando surja. En la sesión llevas la lista y la trabajas con prioridad."},
+  "quick-add":{titulo:"Registro rápido",
+    que:"Tap en cada paso para sumar +1 inmediatamente. Pensado para que registres EN EL MOMENTO de hacer la interacción, no al final del día.",
+    porque:"Registrar al final del día significa reconstruir de memoria, redondear números y olvidar la activación real. Registrar en caliente da datos reales.",
+    util:"5 segundos cada vez. Saca el móvil, abre la app, tap. Listo."},
+  "registro-detallado":{titulo:"Registro detallado de interacción",
+    que:"Para interacciones significativas (Paso 4-7, o cualquier momento importante). Registra qué pasó, qué paso, activación, pinceladas detectadas, si actuaste, notas.",
+    porque:"Las interacciones significativas son las que más enseñan. Registrarlas en caliente con datos completos te permite analizarlas mejor luego.",
+    util:"Lo más útil: registrar TAMBIÉN cuando NO actuaste teniendo oportunidad. Eso es donde está el aprendizaje del patrón."}
+};
+
+const SEMANAS = [
+  {num:1,block:1,title:"Inicio: presencia y autoimagen",objectives:["Retomar sesiones con terapeuta","Establecer rutina de registro al momento","3 aperturas neutras al día (Paso 1)","Trabajo corporal: 4 días ejercicio","Identificar pensamientos dañinos sobre autoimagen"],days:[["Lun","Escribir a terapeuta. 3 aperturas neutras.","Ejercicio (fuerza). Registro.","Vida social ligera o descanso."],["Mar","3 aperturas neutras.","Ejercicio (cardio). Registro.","Lectura de manual."],["Mié","3 aperturas. Probar con cajera/o.","Sesión terapeuta si toca.","Clase de baile. Saludos cálidos."],["Jue","3 aperturas neutras.","Ejercicio (fuerza). Registro.","Tiempo personal."],["Vie","3 aperturas neutras.","Ducha, ropa cuidada. Ejercicio.","Vida social. Práctica de presencia."],["Sáb","Aperturas en contextos no laborales.","Ejercicio (caminata larga).","Vida social en grupo."],["Dom","Tiempo personal.","Descanso. Caminata.","REVISIÓN SEMANAL (10 min)."]]},
+  {num:2,block:1,title:"Consolidar Paso 1 + inicio Paso 2",objectives:["Mantener 3 aperturas neutras al día (Paso 1)","Inicio micro-polarización: 5 veces semana (Paso 2)","Continuar trabajo corporal","Registrar interacciones con señales positivas"],days:[["Lun","3 aperturas + 1 micro-polarización.","Ejercicio.","Vida personal."],["Mar","3 aperturas + 1 micro-pol.","Sesión terapeuta si toca.","Tiempo personal."],["Mié","3 aperturas.","Ejercicio.","Clase de baile."],["Jue","3 aperturas + 1 micro-pol.","Ejercicio.","Vida social."],["Vie","3 aperturas + 1 micro-pol.","Cuidado físico.","Vida social activa."],["Sáb","Aperturas en contexto distinto.","Ejercicio largo.","Micro-pol con conocidos."],["Dom","Tiempo personal.","Descanso.","REVISIÓN SEMANAL."]]},
+  {num:3,block:1,title:"Consolidar Paso 2 + inicio Paso 3",objectives:["Mantener aperturas y micro-polarizaciones","Inicio insinuación ligera: 3 veces semana (Paso 3)","Trabajo identidad masculina: 30 min","Empezar a tocar más cotidianamente"],days:[["Lun","Aperturas + micro-pol + 1 insinuación.","Ejercicio.","Tiempo personal."],["Mar","Práctica continuada.","Sesión terapeuta.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile. Contacto físico."],["Jue","Insinuación con persona conocida.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Vida social con mujeres."],["Sáb","Práctica activa.","Ejercicio.","Vida social activa."],["Dom","Tiempo personal.","Descanso.","REVISIÓN SEMANAL."]]},
+  {num:4,block:1,title:"Consolidación Bloque 1",objectives:["Consolidar todos los pasos del bloque 1","Evaluación del bloque al final","Continuar terapia","Registrar reciprocidad"],days:[["Lun","Práctica integrada.","Ejercicio.","Vida personal."],["Mar","Práctica.","Sesión terapeuta.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Vida social activa."],["Sáb","Tiempo libre.","Ejercicio.","Contexto desafiante."],["Dom","Tiempo personal.","Descanso.","REVISIÓN BLOQUE 1 (30 min)."]]},
+  {num:5,block:2,title:"Inicio Paso 4",objectives:["Mantener pasos 1-3 como base","Iniciar Paso 4: 2 interacciones breves","Continuar terapia","Registrar activación pre/post"],days:[["Lun","Pasos 1-3 cotidianos.","Ejercicio.","Vida personal."],["Mar","Pasos 1-3.","Sesión terapeuta.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile. Paso 4 con compañera."],["Jue","Paso 4 si surge.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Paso 4 con mujer atractiva."],["Sáb","Tiempo libre.","Ejercicio.","Segundo Paso 4."],["Dom","Tiempo personal.","Descanso.","REVISIÓN."]]},
+  {num:6,block:2,title:"Consolidar Paso 4",objectives:["3 interacciones de Paso 4 esta semana","Mantener bases (pasos 1-3)","Detectar pinceladas de reciprocidad","Tolerar silencio después de frase con carga"],days:[["Lun","Pasos 1-3.","Ejercicio.","Vida personal."],["Mar","Pasos 1-3.","Sesión terapeuta.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile. Paso 4 + silencio."],["Jue","Paso 4 si surge.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Paso 4 + silencio."],["Sáb","Tiempo libre.","Ejercicio.","Tercer Paso 4."],["Dom","Tiempo personal.","Descanso.","REVISIÓN."]]},
+  {num:7,block:2,title:"Inicio Paso 5",objectives:["Mantener Paso 4","Inicio Paso 5: sostener 3+ intercambios","Ejercicio anti-trampa: detectar pinceladas","Contar pinceladas y si respuesta escala"],days:[["Lun","Práctica.","Ejercicio.","Vida personal."],["Mar","Práctica.","Sesión terapeuta.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile. Paso 5 con compañera."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Paso 4+5 con mujer atractiva."],["Sáb","Tiempo libre.","Ejercicio.","Vida social activa."],["Dom","Tiempo personal.","Descanso.","REVISIÓN."]]},
+  {num:8,block:2,title:"Consolidación Bloque 2",objectives:["Mantener Pasos 4-5 con menor activación","Cuenta total de pinceladas detectadas","Evaluación de bloque"],days:[["Lun","Práctica.","Ejercicio.","Vida personal."],["Mar","Práctica.","Sesión terapeuta. Trabajo profundo.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Vida social activa."],["Sáb","Tiempo libre.","Ejercicio.","Contexto desafiante."],["Dom","Tiempo personal.","Descanso.","REVISIÓN BLOQUE 2 (30 min)."]]},
+  {num:9,block:3,title:"Inicio Paso 6",objectives:["Mantener pasos 1-5","Inicio Paso 6: 1-2 propuestas concretas","Propuesta específica (día/hora/sitio)","Aceptar respuesta sea cual sea"],days:[["Lun","Práctica.","Ejercicio.","Vida personal."],["Mar","Práctica.","Sesión terapeuta.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile. Paso 6 si hay conocida."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Paso 6 si hay contexto."],["Sáb","Tiempo libre.","Ejercicio.","Vida social activa."],["Dom","Tiempo personal.","Descanso.","REVISIÓN."]]},
+  {num:10,block:3,title:"Consolidar Paso 6",objectives:["2-3 propuestas concretas en la semana","Si hay cita, preparar Paso 7","Repaso del Paso 7 antes de cita"],days:[["Lun","Mensaje a posibles personas.","Ejercicio.","Vida personal."],["Mar","Práctica.","Terapeuta. Trabajar Paso 7 si cita.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Baile. Contacto físico."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Posible cita."],["Sáb","Tiempo libre.","Ejercicio.","Posible cita."],["Dom","Tiempo personal.","Descanso.","REVISIÓN."]]},
+  {num:11,block:3,title:"Integración Paso 7",objectives:["Si hay cita: aplicar Paso 7 completo","Contacto físico progresivo en contextos sociales","Trabajo intensificado de autoimagen","Aplicar Protocolo zona ambigua si aplica"],days:[["Lun","Práctica.","Ejercicio.","Vida personal."],["Mar","Práctica.","Terapeuta. Procesar si hubo cita.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Clase de baile."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Vida social activa."],["Sáb","Tiempo libre.","Ejercicio.","Contexto con persona específica."],["Dom","Tiempo personal.","Descanso.","REVISIÓN. Análisis profundo."]]},
+  {num:12,block:3,title:"Cierre y evaluación global",objectives:["Mantener práctica integrada","Evaluación global del programa","Planificación de continuación"],days:[["Lun","Práctica integrada.","Ejercicio.","Vida personal."],["Mar","Práctica.","Terapeuta. Evaluación.","Tiempo personal."],["Mié","Práctica.","Ejercicio.","Clase de baile."],["Jue","Práctica.","Ejercicio.","Vida social."],["Vie","Práctica.","Cuidado físico.","Vida social."],["Sáb","Tiempo libre.","Ejercicio.","Vida social."],["Dom","Tiempo personal.","Descanso.","EVAL GLOBAL (60 min)."]]}
+];
+
+// =====================================================
+// STORAGE
+// =====================================================
+const STORAGE_KEY = "capitan_app_data_v3";
+const DEFAULT_DATA = {
+  startDate: null,
+  registros: {},
+  interacciones: [],
+  pinceladas: [],
+  victorias: [],
+  semanasRevision: {},
+  semanasDias: {},
+  bloquesEval: {},
+  terapiaSesiones: [],
+  terapiaNotas: []
+};
+
+function loadData() {
+  try {
+    // Migrate from v2
+    let raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) raw = localStorage.getItem("capitan_app_data_v2");
+    if (!raw) return JSON.parse(JSON.stringify(DEFAULT_DATA));
+    const parsed = JSON.parse(raw);
+    return Object.assign({}, JSON.parse(JSON.stringify(DEFAULT_DATA)), parsed);
+  } catch (e) {
+    return JSON.parse(JSON.stringify(DEFAULT_DATA));
+  }
+}
+
+function saveData(data) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch (e) {
+    toast("Error al guardar");
+    return false;
+  }
+}
+
+let DATA = loadData();
+let CURRENT_VIEW = "home";
+let VIEW_STACK = [];
+let CURRENT_PARAMS = {};
+
+// =====================================================
+// UTILS
+// =====================================================
+function toast(msg, type = "default") {
+  const el = document.getElementById("toast");
+  el.innerHTML = type === "success"
+    ? `<svg class="icon" style="font-size:14px"><use href="#i-check"/></svg>${msg}`
+    : msg;
+  el.className = "toast show" + (type === "success" ? " success" : "");
+  setTimeout(() => el.classList.remove("show"), 2000);
+
+  // Haptic feedback if available
+  if (navigator.vibrate) navigator.vibrate(10);
+}
+
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+
+function formatDate(s) {
+  return new Date(s).toLocaleDateString("es-ES", {day:"2-digit", month:"short"});
+}
+
+function formatDateFull(s) {
+  return new Date(s).toLocaleDateString("es-ES", {weekday:"long", day:"numeric", month:"long"});
+}
+
+function capFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+function getCurrentWeek() {
+  if (!DATA.startDate) return null;
+  const start = new Date(DATA.startDate);
+  const now = new Date();
+  const diffDays = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+  if (diffDays < 0) return 0;
+  return Math.min(Math.floor(diffDays / 7) + 1, 12);
+}
+
+function getCurrentBlock() {
+  const week = getCurrentWeek();
+  if (!week) return null;
+  if (week <= 4) return 1;
+  if (week <= 8) return 2;
+  return 3;
+}
+
+function getStartOfWeek() {
+  const date = new Date();
+  const day = date.getDay();
+  const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+  return new Date(date.setDate(diff));
+}
+
+function isThisWeek(dateStr) {
+  const d = new Date(dateStr);
+  const start = getStartOfWeek();
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(end.getDate() + 7);
+  return d >= start && d < end;
+}
+
+function sumStep(stepKey) {
+  let total = 0, thisWeek = 0;
+  Object.entries(DATA.registros).forEach(([date, reg]) => {
+    const val = parseFloat(reg[stepKey]) || 0;
+    total += val;
+    if (isThisWeek(date)) thisWeek += val;
+  });
+  return { total, thisWeek };
+}
+
+function todayReg() {
+  return DATA.registros[todayKey()] || {};
+}
+
+function ensureTodayReg() {
+  const t = todayKey();
+  if (!DATA.registros[t]) DATA.registros[t] = {};
+  return DATA.registros[t];
+}
+
+function daysSinceLastRegister() {
+  const dates = Object.keys(DATA.registros).filter(d => {
+    const reg = DATA.registros[d];
+    return Object.values(reg).some(v => v && v !== 0 && v !== "");
+  }).sort();
+  if (dates.length === 0) return null;
+  const last = new Date(dates[dates.length - 1]);
+  const today = new Date(todayKey());
+  return Math.floor((today - last) / (1000 * 60 * 60 * 24));
+}
+
+// =====================================================
+// NAVIGATION
+// =====================================================
+function navigate(view, params = {}, push = true) {
+  if (push && CURRENT_VIEW !== view) VIEW_STACK.push({view: CURRENT_VIEW, params: CURRENT_PARAMS});
+  CURRENT_VIEW = view;
+  CURRENT_PARAMS = params;
+  render();
+  window.scrollTo(0, 0);
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.view === view);
+  });
+  const showBack = VIEW_STACK.length > 0 && !["home", "glossary", "weeks", "therapy", "more"].includes(view);
+  document.getElementById("backBtn").classList.toggle("hidden", !showBack);
+  document.getElementById("headerInfoBtn").classList.add("hidden");
+}
+
+function goBack() {
+  if (VIEW_STACK.length === 0) return navigate("home", {}, false);
+  const prev = VIEW_STACK.pop();
+  navigate(prev.view, prev.params, false);
+}
+
+// =====================================================
+// MODAL
+// =====================================================
+function openModal(title, body) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalBody").innerHTML = body;
+  document.getElementById("modal").classList.add("show");
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.remove("show");
+}
+
+function showInfo(key) {
+  const i = INFO[key];
+  if (!i) return;
+  let body = '';
+  if (i.que) body += `<div class="info-block"><div class="info-block-label">Qué es</div><div class="info-block-text">${i.que}</div></div>`;
+  if (i.como) body += `<div class="info-block"><div class="info-block-label">Escala</div><div class="info-block-text">${i.como}</div></div>`;
+  if (i.porque) body += `<div class="info-block"><div class="info-block-label">Por qué se mide</div><div class="info-block-text">${i.porque}</div></div>`;
+  if (i.util) body += `<div class="info-block"><div class="info-block-label">Para qué sirve</div><div class="info-block-text highlight">${i.util}</div></div>`;
+  openModal(i.titulo, body);
+}
+
+function showStepInfo(num) {
+  const p = PASOS.find(x => x.num === num);
+  const body = `
+    <div class="info-block"><div class="info-block-label">Qué es</div><div class="info-block-text">${p.que}</div></div>
+    <div class="info-block"><div class="info-block-label">Objetivo</div><div class="info-block-text">${p.obj}</div></div>
+    <div class="info-block"><div class="info-block-label">Cómo practicar</div><div class="info-block-text">${p.como}</div></div>
+    <div class="info-block"><div class="info-block-label">Ejemplos</div><div class="example-list">${p.ejemplos.map(e => `<div class="example-item">${e}</div>`).join("")}</div></div>
+    <div class="info-block"><div class="info-block-label">En el registro</div><div class="info-block-text highlight">${p.registro}</div></div>
+  `;
+  openModal(`Paso ${num}: ${p.titulo}`, body);
+}
+
+function showConceptInfo(key) {
+  const c = CONCEPTOS.find(x => x.key === key);
+  if (!c) return;
+  const body = `
+    <div class="info-block"><div class="info-block-label">Qué es</div><div class="info-block-text">${c.que}</div></div>
+    <div class="info-block"><div class="info-block-label">Regla operativa</div><div class="info-block-text highlight">${c.regla}</div></div>
+    <div class="info-block"><div class="info-block-label">Ejemplos</div><div class="example-list">${c.ejemplos.map(e => `<div class="example-item">${e}</div>`).join("")}</div></div>
+  `;
+  openModal(c.titulo, body);
+}
+
+function ib(key) {
+  return `<button class="info-icon" onclick="event.stopPropagation(); showInfo('${key}')" aria-label="Información">i</button>`;
+}
+function ibStep(num) {
+  return `<button class="info-icon" onclick="event.stopPropagation(); showStepInfo(${num})" aria-label="Información">i</button>`;
+}
+function ibConcept(key) {
+  return `<button class="info-icon" onclick="event.stopPropagation(); showConceptInfo('${key}')" aria-label="Información">i</button>`;
+}
+
+// =====================================================
+// VIEWS
+// =====================================================
+function render() {
+  const c = document.getElementById("appContainer");
+  switch (CURRENT_VIEW) {
+    case "home": renderHome(c); break;
+    case "glossary": renderGlossary(c); break;
+    case "weeks": renderWeeks(c); break;
+    case "therapy": renderTherapy(c); break;
+    case "more": renderMore(c); break;
+    case "week-detail": renderWeekDetail(c); break;
+    case "pinceladas": renderPinceladas(c); break;
+    case "pincelada-new": renderPinceladaNew(c); break;
+    case "victorias": renderVictorias(c); break;
+    case "victoria-new": renderVictoriaNew(c); break;
+    case "interaccion-new": renderInteraccionNew(c); break;
+    case "interacciones": renderInteracciones(c); break;
+    case "close-day": renderCloseDay(c); break;
+    case "settings": renderSettings(c); break;
+    case "eval-bloque": renderEvalBloque(c); break;
+    case "info-app": renderInfoApp(c); break;
+    case "history": renderHistory(c); break;
+    case "therapy-session-new": renderTherapySessionNew(c); break;
+    case "therapy-note-new": renderTherapyNoteNew(c); break;
+  }
+}
+
+// HOME
+function renderHome(c) {
+  document.getElementById("headerTitle").textContent = "Capitán";
+  document.getElementById("headerSubtitle").textContent = "Programa de entrenamiento";
+
+  if (!DATA.startDate) {
+    c.innerHTML = `
+      <div class="onboard">
+        <div class="onboard-icon">
+          <svg class="icon" style="font-size:36px; position:relative; z-index:1"><use href="#i-compass"/></svg>
+        </div>
+        <h1 class="onboard-title">Bienvenido, Capitán</h1>
+        <p class="onboard-text">Configura tu fecha de inicio para empezar el programa de 12 semanas. La semana y el bloque actuales se calcularán automáticamente.</p>
+        <button class="btn btn-primary btn-lg" onclick="navigate('settings')">
+          Configurar inicio
+          <svg class="icon" style="font-size:18px"><use href="#i-chevron-right"/></svg>
+        </button>
+        <button class="btn btn-ghost mt-3" onclick="navigate('glossary')">Primero quiero ver el glosario</button>
+      </div>
+    `;
+    return;
+  }
+
+  const week = getCurrentWeek();
+  const block = getCurrentBlock();
+  const reg = todayReg();
+  const daysSilent = daysSinceLastRegister();
+  const silenceWarning = (daysSilent !== null && daysSilent >= 3) ? `
+    <div class="notice notice-danger">
+      <svg class="icon notice-icon"><use href="#i-flame"/></svg>
+      <div><strong>Llevas ${daysSilent} días sin registrar.</strong> ¿Necesitas ajustar el plan?</div>
+    </div>
+  ` : '';
+
+  const stepColors = ['var(--step-1)','var(--step-2)','var(--step-3)','var(--step-4)','var(--step-5)','var(--step-6)','var(--step-7)'];
+
+  const todayPinceladas = DATA.pinceladas.filter(p => p.fecha === todayKey()).length;
+  const todayVictorias = DATA.victorias.filter(v => v.fecha === todayKey()).length;
+  const todayInteracciones = DATA.interacciones.filter(i => i.fecha === todayKey()).length;
+
+  const aperturas = sumStep("paso1");
+  const microp = sumStep("paso2");
+  const insinuaciones = sumStep("paso3");
+  const tension = sumStep("paso4");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      ${silenceWarning}
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-row">
+          <div>
+            <div class="hero-week">Semana ${week} de 12</div>
+            <div class="hero-date">${capFirst(formatDateFull(todayKey()))}</div>
+          </div>
+          <div class="hero-block-badge">Bloque ${block}</div>
+        </div>
+        <div class="hero-progress"><div class="hero-progress-fill" style="width:${(week/12)*100}%"></div></div>
+        <div class="hero-progress-label"><span>Inicio</span><span>${Math.round((week/12)*100)}%</span><span>Final</span></div>
+      </div>
+
+      <!-- QUICK ADD -->
+      <div class="quick-section">
+        <div class="row-between mb-2">
+          <div class="row gap-2">
+            <svg class="icon" style="font-size:16px; color:var(--text-2)"><use href="#i-zap"/></svg>
+            <div class="t-eyebrow">Registro rápido · Hoy</div>
+          </div>
+          ${ib('quick-add')}
+        </div>
+        <div class="quick-grid">
+          ${[1,2,3].map(n => {
+            const p = PASOS[n-1];
+            const count = reg[p.key] || 0;
+            return `
+              <button class="quick-btn" id="qb-${p.key}" onclick="quickAdd('${p.key}', ${p.num})" style="--step-color: ${stepColors[n-1]}">
+                <div class="quick-btn-num ${count > 0 ? 'has-value' : ''}">${count}</div>
+                <div>
+                  <div class="quick-btn-label">Paso ${p.num}</div>
+                  <div class="quick-btn-title">${p.titulo}</div>
+                </div>
+              </button>
+            `;
+          }).join("")}
+        </div>
+      </div>
+
+      <!-- INTERACCIÓN SIGNIFICATIVA -->
+      <div class="quick-section">
+        <div class="row-between mb-2">
+          <div class="row gap-2">
+            <svg class="icon" style="font-size:16px; color:var(--text-2)"><use href="#i-target"/></svg>
+            <div class="t-eyebrow">Interacción significativa</div>
+          </div>
+          ${ib('registro-detallado')}
+        </div>
+        <div class="t-small text-2 mb-3">Para Paso 4-7 o momentos importantes. Mide activación + notas.</div>
+        <div class="action-row">
+          <button class="action-card primary" onclick="navigate('interaccion-new')" style="flex:2">
+            <div class="row gap-2">
+              <svg class="icon" style="font-size:18px"><use href="#i-plus"/></svg>
+              <div class="action-card-title">Nueva interacción</div>
+            </div>
+            <div class="action-card-sub">Registro detallado con activación</div>
+          </button>
+          <button class="action-card" onclick="navigate('interacciones')">
+            <div class="action-card-title">Ver</div>
+            <div class="action-card-sub">${DATA.interacciones.length} totales</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- ATAJOS -->
+      <div class="quick-section">
+        <div class="t-eyebrow mb-3">Otros registros del momento</div>
+        <div class="action-row">
+          <button class="action-card" onclick="navigate('pincelada-new')">
+            <div class="row gap-2">
+              <svg class="icon" style="font-size:16px"><use href="#i-target"/></svg>
+              <div class="action-card-title">Pincelada</div>
+            </div>
+            <div class="action-card-sub">${todayPinceladas} hoy · ${DATA.pinceladas.length} total</div>
+          </button>
+          <button class="action-card" onclick="navigate('victoria-new')">
+            <div class="row gap-2">
+              <svg class="icon" style="font-size:16px"><use href="#i-trophy"/></svg>
+              <div class="action-card-title">Victoria</div>
+            </div>
+            <div class="action-card-sub">${todayVictorias} hoy · ${DATA.victorias.length} total</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- CERRAR DÍA -->
+      <button class="action-card accent" onclick="navigate('close-day')" style="padding:var(--s-4)">
+        <div class="row-between">
+          <div>
+            <div class="action-card-title" style="font-size:14px">${reg.diaCerrado ? '✓ Día cerrado' : 'Cerrar día'}</div>
+            <div class="action-card-sub">Sensación corporal + notas finales</div>
+          </div>
+          <svg class="icon" style="font-size:18px"><use href="#i-chevron-right"/></svg>
+        </div>
+      </button>
+
+      <!-- STATS -->
+      <div class="card elevated">
+        <div class="row-between mb-3">
+          <div class="t-eyebrow">Resumen acumulado</div>
+          <button class="btn btn-ghost btn-sm" onclick="navigate('history')">Ver historial</button>
+        </div>
+        <div class="stats-grid">
+          ${[
+            {label:'Aperturas', data:aperturas, color:'var(--step-1)'},
+            {label:'Micro-pol.', data:microp, color:'var(--step-2)'},
+            {label:'Insinuac.', data:insinuaciones, color:'var(--step-3)'},
+            {label:'Tensión', data:tension, color:'var(--step-4)'},
+            {label:'Pinceladas', data:{total:DATA.pinceladas.length, thisWeek:DATA.pinceladas.filter(p=>isThisWeek(p.fecha)).length}, color:'var(--accent)'},
+            {label:'Victorias', data:{total:DATA.victorias.length, thisWeek:DATA.victorias.filter(v=>isThisWeek(v.fecha)).length}, color:'var(--success)'}
+          ].map(m => `
+            <div class="stat">
+              <div class="stat-label">${m.label}</div>
+              <div class="stat-value" style="color:${m.color}">${m.data.total}</div>
+              <div class="stat-meta">Esta semana: ${m.data.thisWeek}</div>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <!-- NAVIGATION CARDS -->
+      <div class="grid-2">
+        <button class="action-card" onclick="navigate('week-detail', {num: ${week || 1}})" style="padding:var(--s-4); min-height:80px">
+          <div class="row gap-2">
+            <svg class="icon" style="font-size:18px"><use href="#i-calendar"/></svg>
+            <div class="action-card-title" style="font-size:14px">Semana ${week || 1}</div>
+          </div>
+          <div class="action-card-sub mt-1">Plan y revisión</div>
+        </button>
+        <button class="action-card" onclick="navigate('glossary')" style="padding:var(--s-4); min-height:80px">
+          <div class="row gap-2">
+            <svg class="icon" style="font-size:18px"><use href="#i-book"/></svg>
+            <div class="action-card-title" style="font-size:14px">Glosario</div>
+          </div>
+          <div class="action-card-sub mt-1">Pasos y conceptos</div>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function quickAdd(key, num) {
+  const reg = ensureTodayReg();
+  reg[key] = (reg[key] || 0) + 1;
+  saveData(DATA);
+  const btn = document.getElementById(`qb-${key}`);
+  if (btn) {
+    btn.classList.add('flash');
+    setTimeout(() => btn.classList.remove('flash'), 600);
+    const num = btn.querySelector('.quick-btn-num');
+    num.textContent = reg[key];
+    num.classList.add('has-value');
+  }
+  toast(`+1 Paso ${num} registrado`, "success");
+}
+
+// INTERACCIÓN NUEVA
+function renderInteraccionNew(c) {
+  document.getElementById("headerTitle").textContent = "Nueva interacción";
+  document.getElementById("headerSubtitle").textContent = "Registro detallado en caliente";
+
+  const pasosOptions = PASOS.map(p => `<option value="${p.key}">Paso ${p.num} — ${p.titulo}</option>`).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="notice notice-info">
+        <svg class="icon notice-icon"><use href="#i-zap"/></svg>
+        <div>Registra esto <strong>en caliente</strong>, justo después de la interacción. La activación real solo se mide bien en el momento.</div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Cuándo</label>
+          <input type="date" class="input" id="i-fecha" value="${todayKey()}">
+        </div>
+        <div class="field">
+          <label class="field-label">Qué paso fue principalmente</label>
+          <select class="select" id="i-paso">
+            <option value="">— Elige —</option>
+            ${pasosOptions}
+            <option value="otro">Otro / Mixto</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="field-label">Contexto</label>
+          <input type="text" class="input" id="i-contexto" placeholder="Clase baile, cita, café...">
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Persona</label>
+          <input type="text" class="input" id="i-persona" placeholder="Nombre o referencia">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="slider-wrap">
+          <div class="slider-header">
+            <div class="slider-title">Activación / nervios ${ib('activacion')}</div>
+            <div class="slider-value" id="val-i-activacion">5</div>
+          </div>
+          <input type="range" min="0" max="10" step="1" value="5" id="slider-i-activacion" oninput="document.getElementById('val-i-activacion').textContent = this.value">
+          <div class="slider-ticks"><span>Tranquilo</span><span>Moderado</span><span>Máximo</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Pinceladas detectadas ${ib('pinceladas')}</label>
+          <input type="text" class="input" id="i-pinceladas" inputmode="numeric" placeholder="0" value="0">
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">¿Actuaste tras alguna pincelada? ${ib('pincelada-accion')}</label>
+          <select class="select" id="i-actue">
+            <option value="No aplica">No hubo pinceladas</option>
+            <option value="No">No actué (oportunidad perdida)</option>
+            <option value="Sí">Sí, actué</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Qué pasó</label>
+          <textarea class="textarea" id="i-resumen" placeholder="Qué hiciste, qué respondió, cómo terminó..."></textarea>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Aprendizaje</label>
+          <textarea class="textarea" id="i-aprendizaje" placeholder="Qué te llevas de esta interacción"></textarea>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg btn-full" onclick="saveInteraccion()">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Guardar interacción
+      </button>
+    </div>
+  `;
+}
+
+function saveInteraccion() {
+  const i = {
+    fecha: document.getElementById("i-fecha").value,
+    paso: document.getElementById("i-paso").value,
+    contexto: document.getElementById("i-contexto").value,
+    persona: document.getElementById("i-persona").value,
+    activacion: parseInt(document.getElementById("slider-i-activacion").value),
+    pinceladas: parseInt(document.getElementById("i-pinceladas").value) || 0,
+    actue: document.getElementById("i-actue").value,
+    resumen: document.getElementById("i-resumen").value,
+    aprendizaje: document.getElementById("i-aprendizaje").value,
+    timestamp: Date.now()
+  };
+  if (!i.paso) { toast("Elige qué paso fue"); return; }
+  DATA.interacciones.push(i);
+  if (i.paso !== "otro" && i.paso) {
+    const reg = ensureTodayReg();
+    reg[i.paso] = (reg[i.paso] || 0) + 1;
+  }
+  if (i.pinceladas > 0) {
+    for (let n = 0; n < i.pinceladas; n++) {
+      DATA.pinceladas.push({
+        fecha: i.fecha, persona: i.persona, contexto: i.contexto,
+        pincelada: i.resumen.slice(0, 100),
+        accion: i.actue === "Sí" ? "Sí" : "No",
+        notas: "Auto-registrada desde interacción"
+      });
+    }
+  }
+  saveData(DATA);
+  toast("Interacción guardada", "success");
+  setTimeout(() => navigate("home", {}, false), 600);
+}
+
+function renderInteracciones(c) {
+  document.getElementById("headerTitle").textContent = "Interacciones";
+  document.getElementById("headerSubtitle").textContent = `${DATA.interacciones.length} registradas`;
+
+  if (DATA.interacciones.length === 0) {
+    c.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">
+          <svg class="icon" style="font-size:32px"><use href="#i-message"/></svg>
+        </div>
+        <div class="empty-title">Sin interacciones todavía</div>
+        <p class="empty-text">Registra cada Paso 4-7 o momento importante en caliente.</p>
+        <button class="btn btn-primary" onclick="navigate('interaccion-new')">
+          <svg class="icon" style="font-size:18px"><use href="#i-plus"/></svg>
+          Primera interacción
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  const sorted = [...DATA.interacciones].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+  const list = sorted.map(i => {
+    const p = PASOS.find(x => x.key === i.paso);
+    const pasoLabel = p ? `Paso ${p.num}` : 'Otro';
+    return `
+      <div class="entry" onclick="deleteEntry('interacciones', ${DATA.interacciones.indexOf(i)})">
+        <div class="entry-meta">
+          <span>${formatDate(i.fecha)}</span>
+          ${i.contexto ? `<span>· ${i.contexto}</span>` : ''}
+        </div>
+        <div class="entry-title">
+          <span class="entry-tag neutral">${pasoLabel}</span>
+          ${i.persona || 'Sin nombre'}
+        </div>
+        ${i.resumen ? `<div class="entry-body">${i.resumen}</div>` : ''}
+        <div class="entry-stats">
+          <span class="entry-stat">
+            <svg class="icon" style="font-size:12px"><use href="#i-zap"/></svg>
+            Activación ${i.activacion}/10
+          </span>
+          ${i.pinceladas > 0 ? `<span class="entry-stat">
+            <svg class="icon" style="font-size:12px"><use href="#i-target"/></svg>
+            ${i.pinceladas} pinceladas
+          </span>` : ''}
+          ${i.actue === 'Sí' ? `<span class="entry-tag success">Actué</span>` :
+            i.actue === 'No' ? `<span class="entry-tag danger">No actué</span>` : ''}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  c.innerHTML = `<div class="stack-2">${list}</div><button class="fab" onclick="navigate('interaccion-new')" aria-label="Nueva"><svg class="icon" style="font-size:24px"><use href="#i-plus"/></svg></button>`;
+}
+
+function renderCloseDay(c) {
+  document.getElementById("headerTitle").textContent = "Cerrar día";
+  document.getElementById("headerSubtitle").textContent = capFirst(formatDateFull(todayKey()));
+
+  const reg = todayReg();
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="notice notice-info">
+        <svg class="icon notice-icon"><use href="#i-clock"/></svg>
+        <div>Cierre del día con sensación general + notas. Opcional pero útil para ver evolución de autoimagen.</div>
+      </div>
+
+      <div class="card">
+        <div class="slider-wrap">
+          <div class="slider-header">
+            <div class="slider-title">Cómo me siento conmigo hoy ${ib('sensacion-corporal')}</div>
+            <div class="slider-value" id="val-sensacion">${reg.sensacion || 5}</div>
+          </div>
+          <input type="range" min="0" max="10" step="1" value="${reg.sensacion || 5}" id="slider-sensacion" oninput="document.getElementById('val-sensacion').textContent = this.value">
+          <div class="slider-ticks"><span>Mal</span><span>Neutro</span><span>Muy bien</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Ejercicio físico hoy ${ib('ejercicio')}</label>
+          <select class="select" id="ejercicio">
+            <option value="" ${!reg.ejercicio ? 'selected' : ''}>— No hice ejercicio —</option>
+            <option value="Fuerza" ${reg.ejercicio === 'Fuerza' ? 'selected' : ''}>Fuerza</option>
+            <option value="Cardio" ${reg.ejercicio === 'Cardio' ? 'selected' : ''}>Cardio</option>
+            <option value="Caminata" ${reg.ejercicio === 'Caminata' ? 'selected' : ''}>Caminata (10k+ pasos)</option>
+            <option value="Otro" ${reg.ejercicio === 'Otro' ? 'selected' : ''}>Otro</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Notas del día</label>
+          <textarea class="textarea" id="notasDia" placeholder="Victoria, aprendizaje, reflexión, observación...">${reg.notasDia || ''}</textarea>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg btn-full" onclick="saveCloseDay()">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Cerrar día
+      </button>
+    </div>
+  `;
+}
+
+function saveCloseDay() {
+  const reg = ensureTodayReg();
+  reg.sensacion = parseInt(document.getElementById("slider-sensacion").value);
+  reg.ejercicio = document.getElementById("ejercicio").value;
+  reg.notasDia = document.getElementById("notasDia").value;
+  reg.diaCerrado = true;
+  saveData(DATA);
+  toast("Día cerrado", "success");
+  setTimeout(() => navigate("home", {}, false), 600);
+}
+
+// GLOSSARY
+function renderGlossary(c) {
+  document.getElementById("headerTitle").textContent = "Glosario";
+  document.getElementById("headerSubtitle").textContent = "Referencia rápida";
+
+  const pasosHtml = PASOS.map(p => `
+    <div class="glossary-card" id="g-paso-${p.num}">
+      <div class="glossary-header" onclick="toggleGlossary('g-paso-${p.num}')">
+        <div class="glossary-num step-${p.num}">${p.num}</div>
+        <div class="glossary-title">${p.titulo}</div>
+        <svg class="icon glossary-arrow" style="font-size:16px"><use href="#i-chevron-down"/></svg>
+      </div>
+      <div class="glossary-body">
+        <div class="info-block"><div class="info-block-label">Qué es</div><div class="info-block-text">${p.que}</div></div>
+        <div class="info-block"><div class="info-block-label">Objetivo</div><div class="info-block-text">${p.obj}</div></div>
+        <div class="info-block"><div class="info-block-label">Cómo practicar</div><div class="info-block-text">${p.como}</div></div>
+        <div class="info-block">
+          <div class="info-block-label">Ejemplos</div>
+          <div class="example-list">${p.ejemplos.map(e => `<div class="example-item">${e}</div>`).join("")}</div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  const conceptosHtml = CONCEPTOS.map((cpt, idx) => `
+    <div class="glossary-card" id="g-concept-${idx}">
+      <div class="glossary-header" onclick="toggleGlossary('g-concept-${idx}')">
+        <div class="glossary-num concept">${idx+1}</div>
+        <div class="glossary-title">${cpt.titulo}</div>
+        <svg class="icon glossary-arrow" style="font-size:16px"><use href="#i-chevron-down"/></svg>
+      </div>
+      <div class="glossary-body">
+        <div class="info-block"><div class="info-block-label">Qué es</div><div class="info-block-text">${cpt.que}</div></div>
+        <div class="info-block"><div class="info-block-label">Regla operativa</div><div class="info-block-text highlight">${cpt.regla}</div></div>
+        <div class="info-block">
+          <div class="info-block-label">Ejemplos</div>
+          <div class="example-list">${cpt.ejemplos.map(e => `<div class="example-item">${e}</div>`).join("")}</div>
+        </div>
+      </div>
+    </div>
+  `).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div>
+        <div class="t-h2 mb-1">Los 7 pasos</div>
+        <div class="t-small text-2">Tap para expandir definición, objetivo, ejemplos.</div>
+      </div>
+      <div class="stack-2">${pasosHtml}</div>
+      <div class="mt-3">
+        <div class="t-h2 mb-1">Conceptos clave</div>
+        <div class="t-small text-2">Definiciones del anexo de trabajo profundo.</div>
+      </div>
+      <div class="stack-2">${conceptosHtml}</div>
+    </div>
+  `;
+}
+
+function toggleGlossary(id) {
+  document.getElementById(id).classList.toggle("open");
+}
+
+// WEEKS
+function renderWeeks(c) {
+  document.getElementById("headerTitle").textContent = "Plan 12 semanas";
+  document.getElementById("headerSubtitle").textContent = "3 bloques de entrenamiento";
+
+  const currentWeek = getCurrentWeek();
+  const weeksHtml = SEMANAS.map(w => {
+    const status = currentWeek === null ? "Pendiente" :
+                   currentWeek > w.num ? "Completada" :
+                   currentWeek === w.num ? "En curso" : "Pendiente";
+    const statusColor = currentWeek === w.num ? "var(--accent)" :
+                        currentWeek > w.num ? "var(--success)" : "var(--text-3)";
+    return `
+      <div class="entry" onclick="navigate('week-detail', {num: ${w.num}})">
+        <div class="row-between">
+          <div class="flex-1">
+            <div class="entry-meta">
+              <span class="block-pill b${w.block}"><span class="block-dot"></span>Semana ${w.num}</span>
+            </div>
+            <div class="entry-title mt-1">${w.title}</div>
+          </div>
+          <div style="font-size:11px; font-weight:600; color:${statusColor}; text-transform:uppercase; letter-spacing:0.04em">${status}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <div class="t-eyebrow mb-3">Bloques del programa</div>
+        <div class="grid-3">
+          <div style="padding:var(--s-3); background:var(--block-1-bg); color:var(--block-1-text); border-radius:var(--r-md); text-align:center">
+            <div style="font-size:11px; font-weight:700">BLOQUE 1</div>
+            <div style="font-size:13px; margin-top:2px">Cimientos</div>
+            <div style="font-size:11px; opacity:0.7; margin-top:2px">Sem 1-4</div>
+          </div>
+          <div style="padding:var(--s-3); background:var(--block-2-bg); color:var(--block-2-text); border-radius:var(--r-md); text-align:center">
+            <div style="font-size:11px; font-weight:700">BLOQUE 2</div>
+            <div style="font-size:13px; margin-top:2px">Subir tensión</div>
+            <div style="font-size:11px; opacity:0.7; margin-top:2px">Sem 5-8</div>
+          </div>
+          <div style="padding:var(--s-3); background:var(--block-3-bg); color:var(--block-3-text); border-radius:var(--r-md); text-align:center">
+            <div style="font-size:11px; font-weight:700">BLOQUE 3</div>
+            <div style="font-size:13px; margin-top:2px">Físico</div>
+            <div style="font-size:11px; opacity:0.7; margin-top:2px">Sem 9-12</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="t-eyebrow mb-3">Todas las semanas</div>
+        <div class="stack-2">${weeksHtml}</div>
+      </div>
+
+      <div class="mt-3">
+        <div class="t-eyebrow mb-3">Evaluaciones de bloque</div>
+        <div class="stack-2">
+          <button class="entry" onclick="navigate('eval-bloque', {block: 1})" style="display:block; text-align:left">
+            <div class="row-between">
+              <div>
+                <div class="entry-title">Evaluación Bloque 1</div>
+                <div class="entry-body">Tras semana 4</div>
+              </div>
+              <svg class="icon" style="font-size:16px; color:var(--text-3)"><use href="#i-chevron-right"/></svg>
+            </div>
+          </button>
+          <button class="entry" onclick="navigate('eval-bloque', {block: 2})" style="display:block; text-align:left">
+            <div class="row-between">
+              <div>
+                <div class="entry-title">Evaluación Bloque 2</div>
+                <div class="entry-body">Tras semana 8</div>
+              </div>
+              <svg class="icon" style="font-size:16px; color:var(--text-3)"><use href="#i-chevron-right"/></svg>
+            </div>
+          </button>
+          <button class="entry" onclick="navigate('eval-bloque', {block: 3})" style="display:block; text-align:left">
+            <div class="row-between">
+              <div>
+                <div class="entry-title">Evaluación Bloque 3 — Global</div>
+                <div class="entry-body">Tras semana 12</div>
+              </div>
+              <svg class="icon" style="font-size:16px; color:var(--text-3)"><use href="#i-chevron-right"/></svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderWeekDetail(c) {
+  const num = CURRENT_PARAMS.num;
+  const w = SEMANAS.find(s => s.num === num);
+  document.getElementById("headerTitle").textContent = `Semana ${num}`;
+  document.getElementById("headerSubtitle").textContent = w.title;
+
+  const semanaKey = `s${num}`;
+  if (!DATA.semanasDias[semanaKey]) DATA.semanasDias[semanaKey] = {};
+  if (!DATA.semanasRevision[semanaKey]) DATA.semanasRevision[semanaKey] = {};
+
+  const daysHtml = w.days.map((day, i) => {
+    const done = DATA.semanasDias[semanaKey][i] || false;
+    return `
+      <div class="day-tile ${done ? 'done' : ''}">
+        <div class="day-check ${done ? 'checked' : ''}" onclick="toggleDay('${semanaKey}', ${i})">
+          ${done ? '<svg class="icon" style="font-size:14px"><use href="#i-check"/></svg>' : ''}
+        </div>
+        <div class="day-name">${day[0]}</div>
+        <div class="day-tasks">${day[1]} · ${day[2]} · ${day[3]}</div>
+      </div>
+    `;
+  }).join("");
+
+  const rev = DATA.semanasRevision[semanaKey];
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <span class="block-pill b${w.block}"><span class="block-dot"></span>Bloque ${w.block}</span>
+        <div class="t-eyebrow mt-3 mb-2">Objetivos</div>
+        <ul style="padding-left:var(--s-4); line-height:1.7">
+          ${w.objectives.map(o => `<li style="font-size:14px; margin-bottom:4px">${o}</li>`).join("")}
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-3">Calendario semanal</div>
+        <div class="stack-2">${daysHtml}</div>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-3">Revisión del domingo</div>
+        <div class="field">
+          <label class="field-label">Mayor victoria de la semana</label>
+          <textarea class="textarea" oninput="updateRev('${semanaKey}', 'victoria', this.value)">${rev.victoria || ''}</textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Mayor dificultad</label>
+          <textarea class="textarea" oninput="updateRev('${semanaKey}', 'dificultad', this.value)">${rev.dificultad || ''}</textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Aprendizaje clave</label>
+          <textarea class="textarea" oninput="updateRev('${semanaKey}', 'aprendizaje', this.value)">${rev.aprendizaje || ''}</textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Objetivo para semana siguiente</label>
+          <textarea class="textarea" oninput="updateRev('${semanaKey}', 'siguiente', this.value)">${rev.siguiente || ''}</textarea>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Sensación general (1-10)</label>
+          <input type="text" class="input" inputmode="numeric" maxlength="2" value="${rev.sensacion || ''}" oninput="updateRev('${semanaKey}', 'sensacion', this.value)">
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function toggleDay(semanaKey, dayIdx) {
+  if (!DATA.semanasDias[semanaKey]) DATA.semanasDias[semanaKey] = {};
+  DATA.semanasDias[semanaKey][dayIdx] = !DATA.semanasDias[semanaKey][dayIdx];
+  saveData(DATA);
+  render();
+}
+
+function updateRev(semanaKey, field, val) {
+  if (!DATA.semanasRevision[semanaKey]) DATA.semanasRevision[semanaKey] = {};
+  DATA.semanasRevision[semanaKey][field] = val;
+  saveData(DATA);
+}
+
+// TERAPIA
+function renderTherapy(c) {
+  document.getElementById("headerTitle").textContent = "Terapia";
+  document.getElementById("headerSubtitle").textContent = "Sesiones y notas";
+
+  const sesiones = [...DATA.terapiaSesiones].sort((a, b) => b.fecha.localeCompare(a.fecha));
+  const notasPendientes = DATA.terapiaNotas.filter(n => !n.tratada);
+  const notasTratadas = DATA.terapiaNotas.filter(n => n.tratada);
+
+  c.innerHTML = `
+    <div class="stack-4">
+
+      <div class="card">
+        <div class="row-between mb-3">
+          <div>
+            <div class="row gap-2">
+              <svg class="icon" style="font-size:18px; color:var(--text-2)"><use href="#i-brain"/></svg>
+              <div class="t-h3">Sesiones con terapeuta</div>
+              ${ib('terapia-sesion')}
+            </div>
+            <div class="t-small text-2 mt-1">${sesiones.length} registradas</div>
+          </div>
+        </div>
+        <button class="btn btn-primary btn-full" onclick="navigate('therapy-session-new')">
+          <svg class="icon" style="font-size:18px"><use href="#i-plus"/></svg>
+          Nueva sesión
+        </button>
+        ${sesiones.length === 0 ? `
+          <div class="text-center mt-4" style="padding:var(--s-4) 0; color:var(--text-3); font-size:13px">
+            Ninguna sesión registrada todavía
+          </div>
+        ` : `
+          <div class="stack-2 mt-3">
+            ${sesiones.map(s => `
+              <div class="entry" onclick="deleteTherapy('sesion', ${DATA.terapiaSesiones.indexOf(s)})">
+                <div class="entry-meta">${capFirst(formatDateFull(s.fecha))}</div>
+                ${s.trabajamos ? `<div class="entry-body mt-1"><strong>Trabajamos:</strong> ${s.trabajamos}</div>` : ''}
+                ${s.aprendizajes ? `<div class="entry-body"><strong>Aprendizajes:</strong> ${s.aprendizajes}</div>` : ''}
+                ${s.tareas ? `<div class="entry-body" style="color:var(--accent)"><strong>Tareas:</strong> ${s.tareas}</div>` : ''}
+                ${s.proxima ? `<div class="entry-meta mt-2">Próxima cita: ${formatDate(s.proxima)}</div>` : ''}
+              </div>
+            `).join("")}
+          </div>
+        `}
+      </div>
+
+      <div class="card">
+        <div class="row-between mb-3">
+          <div>
+            <div class="row gap-2">
+              <svg class="icon" style="font-size:18px; color:var(--text-2)"><use href="#i-clipboard"/></svg>
+              <div class="t-h3">Notas para próxima sesión</div>
+              ${ib('terapia-notas')}
+            </div>
+            <div class="t-small text-2 mt-1">${notasPendientes.length} pendientes · ${notasTratadas.length} tratadas</div>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-full" onclick="navigate('therapy-note-new')">
+          <svg class="icon" style="font-size:18px"><use href="#i-plus"/></svg>
+          Añadir nota
+        </button>
+        ${notasPendientes.length === 0 ? `
+          <div class="text-center mt-4" style="padding:var(--s-4) 0; color:var(--text-3); font-size:13px">
+            Sin notas pendientes
+          </div>
+        ` : `
+          <div class="stack-2 mt-3">
+            ${notasPendientes.sort((a,b) => b.fecha.localeCompare(a.fecha)).map(n => `
+              <div class="entry">
+                <div class="entry-meta">${formatDate(n.fecha)}</div>
+                <div class="entry-body mt-1">${n.texto}</div>
+                <div class="row gap-2 mt-3">
+                  <button class="btn btn-success btn-sm" style="flex:1" onclick="markNoteTreated(${DATA.terapiaNotas.indexOf(n)})">
+                    <svg class="icon" style="font-size:14px"><use href="#i-check"/></svg>
+                    Tratada
+                  </button>
+                  <button class="btn btn-ghost btn-sm" onclick="deleteTherapy('nota', ${DATA.terapiaNotas.indexOf(n)})" aria-label="Eliminar">
+                    <svg class="icon" style="font-size:14px"><use href="#i-trash"/></svg>
+                  </button>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        `}
+      </div>
+
+      ${notasTratadas.length > 0 ? `
+        <div class="card">
+          <div class="t-eyebrow mb-3">Notas ya tratadas (últimas 5)</div>
+          <div class="stack-2">
+            ${notasTratadas.sort((a,b) => b.fecha.localeCompare(a.fecha)).slice(0, 5).map(n => `
+              <div class="entry" style="opacity:0.5">
+                <div class="entry-meta">${formatDate(n.fecha)}</div>
+                <div class="entry-body mt-1">${n.texto}</div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function renderTherapySessionNew(c) {
+  document.getElementById("headerTitle").textContent = "Nueva sesión";
+  document.getElementById("headerSubtitle").textContent = "Registro post-sesión";
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="notice notice-info">
+        <svg class="icon notice-icon"><use href="#i-clock"/></svg>
+        <div>Rellénalo el mismo día o al día siguiente, cuando esté fresco.</div>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Fecha de la sesión</label>
+          <input type="date" class="input" id="t-fecha" value="${todayKey()}">
+        </div>
+        <div class="field">
+          <label class="field-label">Qué trabajamos</label>
+          <textarea class="textarea" id="t-trabajamos" placeholder="Temas tratados, situaciones revisadas..."></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Aprendizajes / Conclusiones</label>
+          <textarea class="textarea" id="t-aprendizajes" placeholder="Lo que me llevo de la sesión"></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Tareas para casa</label>
+          <textarea class="textarea" id="t-tareas" placeholder="Cosas a practicar / observar / hacer"></textarea>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Próxima cita (opcional)</label>
+          <input type="date" class="input" id="t-proxima">
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-full" onclick="saveTherapySession()">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Guardar sesión
+      </button>
+    </div>
+  `;
+}
+
+function saveTherapySession() {
+  const s = {
+    fecha: document.getElementById("t-fecha").value,
+    trabajamos: document.getElementById("t-trabajamos").value,
+    aprendizajes: document.getElementById("t-aprendizajes").value,
+    tareas: document.getElementById("t-tareas").value,
+    proxima: document.getElementById("t-proxima").value,
+    timestamp: Date.now()
+  };
+  if (!s.trabajamos && !s.aprendizajes) { toast("Añade al menos qué trabajasteis"); return; }
+  DATA.terapiaSesiones.push(s);
+  saveData(DATA);
+  toast("Sesión guardada", "success");
+  setTimeout(() => navigate("therapy", {}, false), 600);
+}
+
+function renderTherapyNoteNew(c) {
+  document.getElementById("headerTitle").textContent = "Nueva nota";
+  document.getElementById("headerSubtitle").textContent = "Para próxima sesión";
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="notice notice-info">
+        <svg class="icon notice-icon"><use href="#i-clipboard"/></svg>
+        <div>Apunta cosas que quieres tratar la próxima sesión. Llegar con lista clara multiplica el aprovechamiento.</div>
+      </div>
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Fecha</label>
+          <input type="date" class="input" id="n-fecha" value="${todayKey()}">
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Qué quieres tratar</label>
+          <textarea class="textarea" id="n-texto" placeholder="Situación, duda, patrón que has notado..." style="min-height:140px"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-full" onclick="saveTherapyNote()">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Guardar nota
+      </button>
+    </div>
+  `;
+}
+
+function saveTherapyNote() {
+  const n = {
+    fecha: document.getElementById("n-fecha").value,
+    texto: document.getElementById("n-texto").value,
+    tratada: false,
+    timestamp: Date.now()
+  };
+  if (!n.texto) { toast("Escribe algo"); return; }
+  DATA.terapiaNotas.push(n);
+  saveData(DATA);
+  toast("Nota guardada", "success");
+  setTimeout(() => navigate("therapy", {}, false), 600);
+}
+
+function markNoteTreated(idx) {
+  DATA.terapiaNotas[idx].tratada = true;
+  saveData(DATA);
+  toast("Marcada como tratada", "success");
+  render();
+}
+
+function deleteTherapy(type, idx) {
+  if (!confirm("¿Eliminar?")) return;
+  if (type === 'sesion') DATA.terapiaSesiones.splice(idx, 1);
+  else DATA.terapiaNotas.splice(idx, 1);
+  saveData(DATA);
+  render();
+}
+
+// PINCELADAS
+function renderPinceladas(c) {
+  document.getElementById("headerTitle").textContent = "Pinceladas";
+  document.getElementById("headerSubtitle").textContent = `${DATA.pinceladas.length} registradas`;
+
+  const headerInfo = document.getElementById("headerInfoBtn");
+  headerInfo.classList.remove("hidden");
+  headerInfo.onclick = () => showConceptInfo('pincelada');
+
+  if (DATA.pinceladas.length === 0) {
+    c.innerHTML = `
+      <div class="stack-4">
+        <div class="notice notice-warning">
+          <svg class="icon notice-icon"><use href="#i-zap"/></svg>
+          <div><strong>REGLA:</strong> Si en una sesión aparecen 2+ pinceladas, la siguiente activa decisión de actuar.</div>
+        </div>
+        <div class="empty">
+          <div class="empty-icon">
+            <svg class="icon" style="font-size:32px"><use href="#i-target"/></svg>
+          </div>
+          <div class="empty-title">Sin pinceladas todavía</div>
+          <p class="empty-text">Registra cuando detectes señales claras de apertura de ella.</p>
+          <button class="btn btn-primary" onclick="navigate('pincelada-new')">
+            <svg class="icon" style="font-size:18px"><use href="#i-plus"/></svg>
+            Primera pincelada
+          </button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const sorted = [...DATA.pinceladas].sort((a, b) => b.fecha.localeCompare(a.fecha));
+  const list = sorted.map(p => `
+    <div class="entry" onclick="deleteEntry('pinceladas', ${DATA.pinceladas.indexOf(p)})">
+      <div class="entry-meta">
+        <span>${formatDate(p.fecha)}</span>
+        ${p.persona ? `<span>· ${p.persona}</span>` : ''}
+      </div>
+      <div class="entry-body mt-1"><strong>${p.pincelada}</strong></div>
+      <div class="entry-stats">
+        <span class="entry-tag ${p.accion === 'Sí' ? 'success' : 'danger'}">${p.accion === 'Sí' ? '✓ Con acción' : '✗ Sin acción'}</span>
+        ${p.contexto ? `<span class="entry-stat">${p.contexto}</span>` : ''}
+      </div>
+    </div>
+  `).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="notice notice-warning">
+        <svg class="icon notice-icon"><use href="#i-zap"/></svg>
+        <div><strong>REGLA:</strong> Si en una sesión aparecen 2+ pinceladas, la siguiente activa decisión de actuar.</div>
+      </div>
+      <div class="stack-2">${list}</div>
+    </div>
+    <button class="fab" onclick="navigate('pincelada-new')" aria-label="Nueva"><svg class="icon" style="font-size:24px"><use href="#i-plus"/></svg></button>
+  `;
+}
+
+function renderPinceladaNew(c) {
+  document.getElementById("headerTitle").textContent = "Nueva pincelada";
+  document.getElementById("headerSubtitle").textContent = "Señal de apertura detectada";
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Fecha</label>
+          <input type="date" class="input" id="p-fecha" value="${todayKey()}">
+        </div>
+        <div class="field">
+          <label class="field-label">Persona</label>
+          <input type="text" class="input" id="p-persona" placeholder="Compañera baile, Cris...">
+        </div>
+        <div class="field">
+          <label class="field-label">Contexto</label>
+          <input type="text" class="input" id="p-contexto" placeholder="Clase de baile, cita, café...">
+        </div>
+        <div class="field">
+          <label class="field-label">Pincelada detectada ${ibConcept('pincelada')}</label>
+          <textarea class="textarea" id="p-pincelada" placeholder="Mantuvo mirada larga + me preguntó sobre relación pasada..."></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">¿Acción inmediata?</label>
+          <select class="select" id="p-accion">
+            <option value="No">No</option>
+            <option value="Sí">Sí</option>
+          </select>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Tipo de acción / Notas</label>
+          <textarea class="textarea" id="p-notas" placeholder="Qué hiciste o por qué no actuaste, aprendizaje..."></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-full" onclick="savePincelada()">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Guardar pincelada
+      </button>
+    </div>
+  `;
+}
+
+function savePincelada() {
+  const p = {
+    fecha: document.getElementById("p-fecha").value,
+    persona: document.getElementById("p-persona").value,
+    contexto: document.getElementById("p-contexto").value,
+    pincelada: document.getElementById("p-pincelada").value,
+    accion: document.getElementById("p-accion").value,
+    notas: document.getElementById("p-notas").value
+  };
+  if (!p.pincelada) { toast("Describe la pincelada"); return; }
+  DATA.pinceladas.push(p);
+  saveData(DATA);
+  toast("Pincelada guardada", "success");
+  setTimeout(() => navigate("home", {}, false), 600);
+}
+
+// VICTORIAS
+function renderVictorias(c) {
+  document.getElementById("headerTitle").textContent = "Victorias";
+  document.getElementById("headerSubtitle").textContent = `${DATA.victorias.length} registradas`;
+
+  const headerInfo = document.getElementById("headerInfoBtn");
+  headerInfo.classList.remove("hidden");
+  headerInfo.onclick = () => showInfo('victorias');
+
+  if (DATA.victorias.length === 0) {
+    c.innerHTML = `
+      <div class="stack-4">
+        <div class="notice notice-success">
+          <svg class="icon notice-icon"><use href="#i-spark"/></svg>
+          <div><strong>OBJETIVO:</strong> alimentar autoimagen con datos reales. Mínimo 10 en 3 meses.</div>
+        </div>
+        <div class="empty">
+          <div class="empty-icon">
+            <svg class="icon" style="font-size:32px"><use href="#i-trophy"/></svg>
+          </div>
+          <div class="empty-title">Sin victorias todavía</div>
+          <p class="empty-text">Cada señal positiva recibida es evidencia objetiva de tu deseabilidad.</p>
+          <button class="btn btn-primary" onclick="navigate('victoria-new')">
+            <svg class="icon" style="font-size:18px"><use href="#i-plus"/></svg>
+            Primera victoria
+          </button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const sorted = [...DATA.victorias].sort((a, b) => b.fecha.localeCompare(a.fecha));
+  const list = sorted.map(v => `
+    <div class="entry" onclick="deleteEntry('victorias', ${DATA.victorias.indexOf(v)})">
+      <div class="entry-meta">
+        <span>${formatDate(v.fecha)}</span>
+        ${v.contexto ? `<span>· ${v.contexto}</span>` : ''}
+      </div>
+      <div class="entry-body mt-1"><strong>${v.senal}</strong></div>
+      ${v.aprendizaje ? `<div class="entry-body mt-2" style="font-style:italic; color:var(--text-3)">${v.aprendizaje}</div>` : ''}
+    </div>
+  `).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="notice notice-success">
+        <svg class="icon notice-icon"><use href="#i-spark"/></svg>
+        <div><strong>OBJETIVO:</strong> alimentar autoimagen con datos reales. Mínimo 10 en 3 meses.</div>
+      </div>
+      <div class="stack-2">${list}</div>
+    </div>
+    <button class="fab" onclick="navigate('victoria-new')" aria-label="Nueva"><svg class="icon" style="font-size:24px"><use href="#i-plus"/></svg></button>
+  `;
+}
+
+function renderVictoriaNew(c) {
+  document.getElementById("headerTitle").textContent = "Nueva victoria";
+  document.getElementById("headerSubtitle").textContent = "Señal positiva recibida";
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <div class="field">
+          <label class="field-label">Fecha</label>
+          <input type="date" class="input" id="v-fecha" value="${todayKey()}">
+        </div>
+        <div class="field">
+          <label class="field-label">Contexto / Persona</label>
+          <input type="text" class="input" id="v-contexto" placeholder="Café cerca trabajo, camarera...">
+        </div>
+        <div class="field">
+          <label class="field-label">Señal positiva recibida</label>
+          <textarea class="textarea" id="v-senal" placeholder="Sonrió más tiempo del normal, mantuvo conversación 2 min..."></textarea>
+        </div>
+        <div class="field">
+          <label class="field-label">Mi reacción</label>
+          <textarea class="textarea" id="v-reaccion" placeholder="Cómo respondiste"></textarea>
+        </div>
+        <div class="field" style="margin-bottom:0">
+          <label class="field-label">Aprendizaje</label>
+          <textarea class="textarea" id="v-aprendizaje" placeholder="Qué te dice esto sobre ti"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-lg btn-full" onclick="saveVictoria()">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Guardar victoria
+      </button>
+    </div>
+  `;
+}
+
+function saveVictoria() {
+  const v = {
+    fecha: document.getElementById("v-fecha").value,
+    contexto: document.getElementById("v-contexto").value,
+    senal: document.getElementById("v-senal").value,
+    reaccion: document.getElementById("v-reaccion").value,
+    aprendizaje: document.getElementById("v-aprendizaje").value
+  };
+  if (!v.senal) { toast("Describe la señal"); return; }
+  DATA.victorias.push(v);
+  saveData(DATA);
+  toast("Victoria guardada", "success");
+  setTimeout(() => navigate("home", {}, false), 600);
+}
+
+function deleteEntry(type, idx) {
+  if (!confirm("¿Eliminar este registro?")) return;
+  DATA[type].splice(idx, 1);
+  saveData(DATA);
+  render();
+}
+
+// MÁS
+function renderMore(c) {
+  document.getElementById("headerTitle").textContent = "Más";
+  document.getElementById("headerSubtitle").textContent = "Opciones";
+
+  const menuItem = (icon, title, sub, action) => `
+    <button class="entry" onclick="${action}" style="text-align:left; width:100%">
+      <div class="row-between">
+        <div class="row gap-3">
+          <div style="width:36px; height:36px; border-radius:var(--r-md); background:var(--surface-2); display:flex; align-items:center; justify-content:center; color:var(--text-2)">
+            <svg class="icon" style="font-size:18px"><use href="#${icon}"/></svg>
+          </div>
+          <div>
+            <div class="entry-title">${title}</div>
+            <div class="entry-body">${sub}</div>
+          </div>
+        </div>
+        <svg class="icon" style="font-size:16px; color:var(--text-3)"><use href="#i-chevron-right"/></svg>
+      </div>
+    </button>
+  `;
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div>
+        <div class="t-eyebrow mb-2">Registros</div>
+        <div class="stack-2">
+          ${menuItem('i-list', 'Historial diario', 'Todos los días registrados', "navigate('history')")}
+          ${menuItem('i-message', `Interacciones (${DATA.interacciones.length})`, 'Registros detallados', "navigate('interacciones')")}
+          ${menuItem('i-target', `Pinceladas (${DATA.pinceladas.length})`, 'Señales detectadas', "navigate('pinceladas')")}
+          ${menuItem('i-trophy', `Victorias (${DATA.victorias.length})`, 'Señales positivas recibidas', "navigate('victorias')")}
+        </div>
+      </div>
+
+      <div>
+        <div class="t-eyebrow mb-2">Plan</div>
+        <div class="stack-2">
+          ${menuItem('i-clipboard', 'Evaluación Bloque 1', 'Tras semana 4', "navigate('eval-bloque', {block:1})")}
+          ${menuItem('i-clipboard', 'Evaluación Bloque 2', 'Tras semana 8', "navigate('eval-bloque', {block:2})")}
+          ${menuItem('i-clipboard', 'Evaluación Bloque 3', 'Global, tras semana 12', "navigate('eval-bloque', {block:3})")}
+        </div>
+      </div>
+
+      <div>
+        <div class="t-eyebrow mb-2">Sistema</div>
+        <div class="stack-2">
+          ${menuItem('i-settings', 'Configuración', 'Fecha inicio, backup, datos', "navigate('settings')")}
+          ${menuItem('i-info', 'Acerca de', 'Manual y guía de uso', "navigate('info-app')")}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderHistory(c) {
+  document.getElementById("headerTitle").textContent = "Historial";
+  document.getElementById("headerSubtitle").textContent = "Todos los registros diarios";
+
+  const dates = Object.keys(DATA.registros).sort().reverse();
+  if (dates.length === 0) {
+    c.innerHTML = `
+      <div class="empty">
+        <div class="empty-icon">
+          <svg class="icon" style="font-size:32px"><use href="#i-list"/></svg>
+        </div>
+        <div class="empty-title">Sin registros todavía</div>
+        <p class="empty-text">Empieza haciendo tu primer tap en el quick add del inicio.</p>
+        <button class="btn btn-primary" onclick="navigate('home')">Ir al inicio</button>
+      </div>
+    `;
+    return;
+  }
+
+  const validDates = dates.filter(d => {
+    const r = DATA.registros[d];
+    return Object.values(r).some(v => v && v !== 0 && v !== "");
+  });
+
+  const list = validDates.map(d => {
+    const r = DATA.registros[d];
+    const totalPasos = (r.paso1||0)+(r.paso2||0)+(r.paso3||0)+(r.paso4||0)+(r.paso5||0)+(r.paso6||0)+(r.paso7||0);
+    return `
+      <div class="entry">
+        <div class="entry-meta">
+          ${capFirst(formatDateFull(d))}
+          ${r.diaCerrado ? '<span class="entry-tag success">Cerrado</span>' : ''}
+        </div>
+        <div class="entry-stats mt-2">
+          <span class="entry-stat">
+            <svg class="icon" style="font-size:12px"><use href="#i-trending"/></svg>
+            ${totalPasos} pasos
+          </span>
+          ${r.sensacion ? `<span class="entry-stat">💪 ${r.sensacion}/10</span>` : ''}
+          ${r.ejercicio ? `<span class="entry-stat">🏋️ ${r.ejercicio}</span>` : ''}
+        </div>
+        ${r.notasDia ? `<div class="entry-body mt-2" style="font-style:italic; color:var(--text-2)">${r.notasDia}</div>` : ''}
+      </div>
+    `;
+  }).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <div class="t-eyebrow mb-2">Total días con registro</div>
+        <div class="t-number-lg">${validDates.length}</div>
+      </div>
+      <div class="stack-2">${list}</div>
+    </div>
+  `;
+}
+
+function renderEvalBloque(c) {
+  const block = CURRENT_PARAMS.block;
+  document.getElementById("headerTitle").textContent = `Evaluación Bloque ${block}`;
+  document.getElementById("headerSubtitle").textContent = "Análisis profundo";
+
+  const items = {
+    1: ["¿Aperturas neutras casi todos los días? (Mín: 60% días)","¿Micro-polarizaciones? (Mín: 15 en el bloque)","¿Insinuaciones ligeras? (Mín: 5 en el bloque)","¿Activación al hacer aperturas ha bajado?","¿Retomada terapia? (Debería: 2-3 sesiones)","¿Registrado señales positivas femeninas? (Mín: 5-10)","¿Sensación corporal ha mejorado? (Subir ≥1 punto)","¿AVANZO AL BLOQUE 2? (Sí/No)"],
+    2: ["¿Paso 4 al menos 8-10 veces?","¿Paso 5 al menos 3-5 veces (sosteniendo 3 intercambios)?","¿Activación al hacer Paso 4 ha bajado?","¿Detectado pinceladas conscientemente?","¿Escalado tras detectar 2-3 pinceladas?","¿Sigue terapia con regularidad?","¿AVANZO AL BLOQUE 3? (Sí/No)"],
+    3: ["¿Completado 12 semanas con consistencia? (Mín 70%)","¿Cuántas interacciones Paso 4-5 en total?","¿Cuántas propuestas concretas (Paso 6)?","¿Cuántas veces escalado físicamente (Paso 7)?","¿Cómo ha cambiado autoimagen?","¿Sigue terapia? ¿Qué he trabajado?","¿Necesito otro ciclo o cambio de enfoque?","¿PLANIFICACIÓN DE CONTINUACIÓN?"]
+  }[block];
+
+  const evalKey = `b${block}`;
+  if (!DATA.bloquesEval[evalKey]) DATA.bloquesEval[evalKey] = {};
+
+  const list = items.map((q, i) => {
+    const r = DATA.bloquesEval[evalKey][i] || {};
+    return `
+      <div class="card">
+        <div style="font-weight:600; margin-bottom:var(--s-2); font-size:14px">${i+1}. ${q}</div>
+        <textarea class="textarea" placeholder="Respuesta..." oninput="updateEval('${evalKey}', ${i}, 'respuesta', this.value)">${r.respuesta || ''}</textarea>
+      </div>
+    `;
+  }).join("");
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <span class="block-pill b${block}"><span class="block-dot"></span>Bloque ${block}</span>
+        <p class="t-small text-2 mt-2">Cada 4 semanas, 30 min de evaluación profunda.</p>
+      </div>
+      ${list}
+      <button class="btn btn-primary btn-lg btn-full" onclick="toast('Guardado automáticamente', 'success'); navigate('weeks', {}, false)">
+        <svg class="icon" style="font-size:18px"><use href="#i-check"/></svg>
+        Cerrar evaluación
+      </button>
+    </div>
+  `;
+}
+
+function updateEval(key, idx, field, val) {
+  if (!DATA.bloquesEval[key]) DATA.bloquesEval[key] = {};
+  if (!DATA.bloquesEval[key][idx]) DATA.bloquesEval[key][idx] = {};
+  DATA.bloquesEval[key][idx][field] = val;
+  saveData(DATA);
+}
+
+function renderSettings(c) {
+  document.getElementById("headerTitle").textContent = "Configuración";
+  document.getElementById("headerSubtitle").textContent = "Programa y datos";
+
+  const numRegistros = Object.keys(DATA.registros).length;
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card">
+        <div class="t-eyebrow mb-2">Fecha de inicio del programa</div>
+        <div class="field">
+          <input type="date" class="input" id="startDate" value="${DATA.startDate || todayKey()}">
+        </div>
+        <button class="btn btn-primary btn-full" onclick="saveStartDate()">Guardar fecha</button>
+        <p class="t-small text-2 mt-2">La semana y bloque actuales se calculan desde esta fecha.</p>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-2">Backup de datos</div>
+        <div class="notice notice-warning mb-3">
+          <svg class="icon notice-icon"><use href="#i-info"/></svg>
+          <div>Tus datos viven en este navegador. Haz backup cada domingo en la revisión semanal.</div>
+        </div>
+        <div class="stack-2">
+          <button class="btn btn-success btn-full" onclick="exportData()">
+            <svg class="icon" style="font-size:18px"><use href="#i-download"/></svg>
+            Exportar datos (JSON)
+          </button>
+          <label class="btn btn-secondary btn-full" style="cursor:pointer">
+            <svg class="icon" style="font-size:18px"><use href="#i-upload"/></svg>
+            Importar datos
+            <input type="file" accept=".json" onchange="importData(event)" style="display:none">
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-3">Estado actual</div>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-label">Días registrados</div>
+            <div class="stat-value">${numRegistros}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Interacciones</div>
+            <div class="stat-value">${DATA.interacciones.length}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Pinceladas</div>
+            <div class="stat-value">${DATA.pinceladas.length}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Victorias</div>
+            <div class="stat-value">${DATA.victorias.length}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Sesiones terapia</div>
+            <div class="stat-value">${DATA.terapiaSesiones.length}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Notas terapia</div>
+            <div class="stat-value">${DATA.terapiaNotas.length}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-2" style="color:var(--danger)">Zona peligrosa</div>
+        <p class="t-small text-2 mb-3">Borrar todos los datos no se puede deshacer.</p>
+        <button class="btn btn-danger btn-full" onclick="resetData()">
+          <svg class="icon" style="font-size:18px"><use href="#i-trash"/></svg>
+          Borrar todos los datos
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function saveStartDate() {
+  DATA.startDate = document.getElementById("startDate").value;
+  saveData(DATA);
+  toast("Fecha guardada", "success");
+  setTimeout(() => navigate("home", {}, false), 600);
+}
+
+function exportData() {
+  const json = JSON.stringify(DATA, null, 2);
+  const blob = new Blob([json], {type: "application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `capitan-backup-${todayKey()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast("Backup descargado", "success");
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const imported = JSON.parse(e.target.result);
+      if (!confirm("¿Reemplazar todos los datos con el backup importado?")) return;
+      DATA = Object.assign({}, JSON.parse(JSON.stringify(DEFAULT_DATA)), imported);
+      saveData(DATA);
+      toast("Datos importados", "success");
+      setTimeout(() => navigate("home", {}, false), 600);
+    } catch (err) {
+      toast("Error: archivo inválido");
+    }
+  };
+  reader.readAsText(file);
+}
+
+function resetData() {
+  if (!confirm("¿Borrar TODOS los datos? No se puede deshacer.")) return;
+  if (!confirm("Última confirmación. ¿Borrar todo?")) return;
+  DATA = JSON.parse(JSON.stringify(DEFAULT_DATA));
+  saveData(DATA);
+  toast("Datos borrados", "success");
+  setTimeout(() => navigate("home", {}, false), 600);
+}
+
+function renderInfoApp(c) {
+  document.getElementById("headerTitle").textContent = "Acerca de";
+  document.getElementById("headerSubtitle").textContent = "Manual Capitán v3";
+
+  c.innerHTML = `
+    <div class="stack-4">
+      <div class="card text-center">
+        <div class="onboard-icon" style="width:64px; height:64px; margin:0 auto var(--s-3); border-radius:var(--r-xl)">
+          <svg class="icon" style="font-size:28px; position:relative; z-index:1; color:var(--brand-text)"><use href="#i-compass"/></svg>
+        </div>
+        <div class="t-h2">Manual Capitán</div>
+        <p class="t-small text-2 mt-2">Herramienta de seguimiento del programa de 12 semanas con registro al momento.</p>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-3">Filosofía de uso</div>
+        <p class="t-body"><strong>Registro al momento, no al final del día.</strong> La activación real solo se mide bien en caliente. Los datos se acumulan en 5 segundos cada vez.</p>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-3">Cómo usar</div>
+        <ul style="padding-left:var(--s-5); line-height:1.8; font-size:14px">
+          <li><strong>En el momento:</strong> tap rápido en pasos 1-3 del inicio</li>
+          <li><strong>Tras Paso 4-7:</strong> "Nueva interacción" con activación + notas</li>
+          <li><strong>Tras detectar pincelada:</strong> "+ Pincelada"</li>
+          <li><strong>Tras recibir señal positiva:</strong> "+ Victoria"</li>
+          <li><strong>Cada noche (opcional):</strong> "Cerrar día" con sensación</li>
+          <li><strong>Cada domingo:</strong> Semanas → actual → Revisión</li>
+          <li><strong>Cada 4 semanas:</strong> Más → Evaluación de bloque</li>
+          <li><strong>Tras sesión terapia:</strong> Terapia → + Nueva sesión</li>
+          <li><strong>Entre sesiones:</strong> Terapia → + Nota</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="t-eyebrow mb-2">Privacidad</div>
+        <p class="t-small text-2">Tus datos viven solo en este navegador. Nada se envía a servidores. Eres responsable de hacer backup periódico.</p>
+      </div>
+
+      <div class="text-center text-3 t-tiny">Versión 3.0 · Mayo 2026</div>
+    </div>
+  `;
+}
+
+// =====================================================
+// INIT
+// =====================================================
+document.getElementById("modal").addEventListener("click", (e) => {
+  if (e.target.id === "modal") closeModal();
+});
+
+render();
+</script>
+</body>
+</html>
